@@ -1,0 +1,29 @@
+ .dropbtn {background-color: #4caf50;
+                color: aliceblue;
+                padding: 16px;
+                font-size: 30px;
+                border: none;
+                overflow: auto;
+                cursor: pointer;}
+
+            .dropdown {position: relative;
+                display: block;
+            }
+
+            .dropdown-content {display: none;
+                position:relative;
+                background-color: whitesmoke;
+                min-width: 16px;
+            }
+
+            .dropdown-content a {color: black;
+                padding: 5px 10px;
+                text-decoration: none;
+                display: block;
+            }
+
+            .dropdown-content a :hover {background-color: #4caf50;
+                padding: auto;
+            }
+
+            .dropdown:hover .dropdown-content {display: block;}
