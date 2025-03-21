@@ -9,7 +9,8 @@
             }
 
             p {font-size: larger;
-            font-family: 'times new roman';}
+            font-family: 'times new roman';
+            }
           </style>
              <title> iPRAY</title>
         <link rel="icon" type="image/x-icon"
@@ -241,12 +242,11 @@
     <script>
       var greeting;
       var time = new Date().getHours();
-    if (time < 12) {
-        greeting = "GOOD MORNING";
-    } else if (time <16) {
-        greeting = "GOOD AFTERNOON";
-    } else {
-        greeting = "GOOD EVENING";
+    if (time < 12) {greeting = "GOOD MORNING";
+    } 
+    else if (time <16) {greeting = "GOOD AFTERNOON";
+    } 
+    else {greeting = "GOOD EVENING";
     }
 document.getElementById("saa").innerHTML = greeting
 
