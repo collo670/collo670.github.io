@@ -3,12 +3,16 @@ function initPDFViewer(pdfUrl) {
         pageNum = 1,
         pageRendering = false,
         pageNumPending = null,
-        scale = 1.0,  // Reduced scale for normal size
+        scale = 0.8,  // Initial scale
         canvas = document.getElementById('pdf-render'),
         ctx = canvas.getContext('2d'),
         pdfContainer = document.querySelector('.pdf-container');
 
-    // Initialize PDF.js
+    const SCALE_STEP = 0.2;
+    const MIN_SCALE = 0.5;
+    const MAX_SCALE = 2.5;
+
+    // Initialize PDF.js etc
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js';
 
     // Search functionality variables
@@ -16,9 +20,25 @@ function initPDFViewer(pdfUrl) {
     let currentMatch = -1;
     let matches = [];
 
-    let scrollTimeout;
-    let lastScrollPosition = 0;
-    const scrollThreshold = 0.8; // 80% of the page height
+    // Add zoom controls
+    function zoomIn() {
+        if (scale >= MAX_SCALE) return;
+        scale += SCALE_STEP;
+        renderPage(pageNum);
+        updateZoomLevel();
+    }
+
+    function zoomOut() {
+        if (scale <= MIN_SCALE) return;
+        scale -= SCALE_STEP;
+        renderPage(pageNum);
+        updateZoomLevel();
+    }
+
+    function updateZoomLevel() {
+        const zoomPercent = Math.round(scale * 100);
+        document.getElementById('zoom-level').textContent = `${zoomPercent}%`;
+    }
 
     // Render the page
     function renderPage(num) {
@@ -28,8 +48,6 @@ function initPDFViewer(pdfUrl) {
         }
         
         pageRendering = true;
-        
-        // Update page counter immediately
         document.getElementById('page-num').textContent = num;
 
         pdfDoc.getPage(num).then(function(page) {
@@ -39,7 +57,9 @@ function initPDFViewer(pdfUrl) {
 
             const renderContext = {
                 canvasContext: ctx,
-                viewport: viewport
+                viewport: viewport,
+                enableWebGL: true,  // Enable WebGL for better rendering
+                renderInteractiveForms: false  // Disable form rendering for better performance
             };
             
             return page.render(renderContext).promise.then(() => {
@@ -48,55 +68,17 @@ function initPDFViewer(pdfUrl) {
                     renderPage(pageNumPending);
                     pageNumPending = null;
                 }
+                updateZoomLevel();
             });
         });
     }
-
-    // Handle scroll-based page loading with debounce
-    function handleScroll() {
-        const container = pdfContainer;
-        const currentScrollPosition = container.scrollTop;
-        const scrollHeight = container.scrollHeight;
-        const containerHeight = container.clientHeight;
-        
-        // Clear existing timeout
-        clearTimeout(scrollTimeout);
-        
-        // Only proceed if we're scrolling down
-        if (currentScrollPosition > lastScrollPosition) {
-            // Calculate how far we've scrolled through the current content
-            const scrollPercentage = (currentScrollPosition + containerHeight) / scrollHeight;
-            
-            // If we're past our threshold and not already loading a page
-            if (scrollPercentage > scrollThreshold && !pageRendering && pageNum < pdfDoc.numPages) {
-                // Set a timeout to prevent too rapid page loading
-                scrollTimeout = setTimeout(() => {
-                    pageNum++;
-                    renderPage(pageNum);
-                }, 500); // Half second delay
-            }
-        }
-        
-        lastScrollPosition = currentScrollPosition;
-    }
-
-    // Throttle scroll event handler
-    let ticking = false;
-    pdfContainer.addEventListener('scroll', function() {
-        if (!ticking) {
-            window.requestAnimationFrame(function() {
-                handleScroll();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    });
 
     // Get Document
     pdfjsLib.getDocument(pdfUrl).promise.then(function(pdfDoc_) {
         pdfDoc = pdfDoc_;
         document.getElementById('page-count').textContent = pdfDoc.numPages;
         renderPage(pageNum);
+        updateZoomLevel();
     });
 
     // Previous page
@@ -176,4 +158,20 @@ function initPDFViewer(pdfUrl) {
     });
     document.getElementById('next-match').addEventListener('click', nextMatch);
     document.getElementById('prev-match').addEventListener('click', previousMatch);
+
+    // Add zoom event listeners
+    document.getElementById('zoom-in').addEventListener('click', zoomIn);
+    document.getElementById('zoom-out').addEventListener('click', zoomOut);
+
+    // Add wheel zoom with Ctrl key
+    pdfContainer.addEventListener('wheel', function(e) {
+        if (e.ctrlKey) {
+            e.preventDefault();
+            if (e.deltaY < 0) {
+                zoomIn();
+            } else {
+                zoomOut();
+            }
+        }
+    });
 }
