@@ -12,7 +12,7 @@ function initPDFViewer(pdfUrl) {
     const MIN_SCALE = 0.5;
     const MAX_SCALE = 2.5;
 
-    // Initialize PDF.js
+    // Initialize PDF.js etc
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js';
 
     // Search functionality variables
