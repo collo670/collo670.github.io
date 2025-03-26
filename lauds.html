@@ -18,6 +18,8 @@
         <link rel="icon" type="image/x-icon"
         href="/assets/images/favicon.ico.jpg">
         <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/css/pdf-viewer.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
     </head>
     <body style="background-color: #1abc9c;text-align: center;font-size:larger;">
         <h1 style="text-align: center; background-color: tomato;">NEOKATEKUMENATO</h1>
@@ -75,15 +77,38 @@
         Inafuata sala rasmi kutoka sala ya asubuhi na kisha kumalizika kwa sala ya kuhitimisha masifu ya asubuhi.</p>
     </p>
   </div>
-          <div class="container-sm themed-container text-center">
+          <div class="container-xxl themed-container text-center">
             <h2>MASIFU YA ASUBUHI</h2>
     
-    <!--mwanzo wa masifu ya asubuhi-->
-    <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="/assets/documents/asubuhi/Masifu ya Asubuhi kwa majuma manne complete vol 1of2.pdf" width="100%" height="2000"></iframe>
-      </div>
-    <!--download link-->
-   </div>
+    <div class="pdf-viewer-wrapper">
+        <!-- Controls container -->
+        <div class="controls-container">
+            <div class="search-controls">
+                <input type="text" id="search-input" placeholder="Search in PDF...">
+                <button id="search-button">Search</button>
+                <button id="prev-match">Previous Match</button>
+                <button id="next-match">Next Match</button>
+                <span id="search-info"></span>
+            </div>
+            <div class="pdf-controls">
+                <button id="prev">Previous</button>
+                <span>Page: <span id="page-num"></span> / <span id="page-count"></span></span>
+                <button id="next">Next</button>
+            </div>
+        </div>
+        
+        <!-- PDF container -->
+        <div class="pdf-container">
+            <div class="canvas-wrapper">
+                <canvas id="pdf-render"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <p>
+        <a href="/assets/documents/asubuhi/Masifu ya Asubuhi kwa majuma manne complete vol 1of2.pdf" download>Download PDF</a>
+    </p>
+</div>
           <div class="container-fluid themed-container text-center">
             <div class="container">
               <footer class="py-3 my-4">
@@ -109,12 +134,16 @@
             </div>
               </body>
           </div>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.js" ></script>
-      <script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script>
         d = new Date();
         document.getElementById("demo").innerHTML = d.toDateString();
-        </script>
-
-        </p>
-    </body>
+    </script>
+    <script src="/assets/js/pdf-viewer.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initPDFViewer('/assets/documents/asubuhi/Masifu ya Asubuhi kwa majuma manne complete vol 1of2.pdf');
+        });
+    </script>
+</body>
 </html>

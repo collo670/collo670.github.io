@@ -3,7 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
-             h1 {outline-color: darkslategrey;
+            h1 {outline-color: darkslategrey;
                 outline-width: 0px;
                 font-family: 'times new roman'
             }
@@ -11,13 +11,13 @@
             font-size: larger;
             padding: 0px;
                margin: 20px;
-        }
-
+            }
         </style>
         <title>AMEFUFUKA</title>
-        <link rel="icon" type="image/x-icon"
-        href="/assets/images/favicon.ico.jpg">
+        <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico.jpg">
         <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/css/pdf-viewer.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
     </head>
     <body style="background-color:#1abc9c;font-size: larger;">
         <h1 style="text-align: center; background-color: tomato;">NEOKATEKUMENATO</h1>
@@ -92,7 +92,7 @@
             <h2 style="text-align: center;background-color:darkslategrey; color: red;font-size:xx-large;">UTARATIBU WA NYIMBO</h2>
             <ol style="text-align:justify;font-size:larger; margin: 20px;" type="1">
                 <li>rangi ya njano, kwa maadhimisho ya kilitrujia; (UK 1-30)</li>
-                <li>rangi ya kijivu kwa nyimbo za kufanya wakati wa kumega mkate; (kurasa kadhaa)</li>
+                <li>rangi ya kijivu kwa nyimbo za kumega mkate; (kurasa kadhaa)</li>
                 <li>rangi nyeupe kwa nyimbo za prekatekumenato; (UK 31-200)</li>
                 <li>rangi ya kijani kwa nyimbo za katekumenato; ( UK 201-260)</li>
                 <li>rangi ya blu angani kwa nyimbo za Uteuzi. (UK 261-300)</li>
@@ -122,15 +122,34 @@
 </div>
           <div class="container-xxl themed-container text-center">
             <h2 style="text-align: center;">AMEFUFUKA</h2>
-    <!--mwanzo wa masifu ya asubuhi-->
-    <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="/assets/documents/amefufuka/00Amefufuka_ALL.pdf" width="100%" height="2000"></iframe>
-      </div>
-    <!--download link-->
-    <p>
-        <a href="/assets/documents/amefufuka/00Amefufuka_ALL.pdf" download> download pdf</a>
-    </p>
-  </div>
+            
+            <div class="pdf-viewer-wrapper">
+                <div class="controls-container">
+                    <div class="search-controls">
+                        <input type="text" id="search-input" placeholder="Search in PDF...">
+                        <button id="search-button">Search</button>
+                        <button id="prev-match">Previous Match</button>
+                        <button id="next-match">Next Match</button>
+                        <span id="search-info"></span>
+                    </div>
+                    <div class="pdf-controls">
+                        <button id="prev">Previous</button>
+                        <span>Page: <span id="page-num"></span> / <span id="page-count"></span></span>
+                        <button id="next">Next</button>
+                    </div>
+                </div>
+                
+                <div class="pdf-container">
+                    <div class="canvas-wrapper">
+                        <canvas id="pdf-render"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <p>
+                <a href="/assets/documents/amefufuka/00Amefufuka_ALL.pdf" download>Download PDF</a>
+            </p>
+        </div>
 
           <div class="container-fluid themed-container text-center">
             <div class="container">
@@ -162,8 +181,13 @@
     <script>
         d = new Date();
         document.getElementById("demo").innerHTML = d.toDateString();
-      </script>
-        
-    </body>
+    </script>
+    <script src="/assets/js/pdf-viewer.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initPDFViewer('/assets/documents/amefufuka/00Amefufuka_ALL.pdf');
+        });
+    </script>
+</body>
 </html>
         
