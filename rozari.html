@@ -21,15 +21,73 @@
                   background-position: right top;
                   background-attachment: fixed;
              }
+            body {
+                text-align: center;
+                background-color: whitesmoke;
+                font-size: larger;
+            }
+            h2.display-3 {
+                text-align: center;
+                color: rgba(15, 39, 90, 0.989);
+            }
+            .container-md p {
+                font-size: x-large;
+                text-align: center;
+            }
+            .btn-primary a {
+                color: white;
+                text-decoration: none;
+            }
+            .btn-outline-secondary a {
+                color: red;
+                text-decoration: none;
+            }
+            .themed-container h2 {
+                background-color: rgba(15, 39, 90, 0.989);
+                color: white;
+                font-size: xx-large;
+                text-align: center;
+            }
+            /* Moved inline styles to CSS */
+            .matendo-heading {
+                text-align: center;
+                font-size: x-large;
+            }
 
+            .styled-list {
+                text-align: left;
+                font-size: larger;
+                margin: 20px;
+                padding: 0;
+                list-style-type: lower-roman;
+            }
 
+            .styled-list li {
+                margin-bottom: 10px; /* Adds spacing between list items */
+            }
+
+            .barua-title {
+                background-color: rgba(15, 39, 90, 0.989);
+                font-size: x-large;
+                color: white;
+                text-align: center;
+            }
+
+            .utangulizi-title {
+                font-size: xx-large;
+                text-align: center;
+            }
+
+            .centered-text {
+                text-align: center;
+            }
         </style>
         <title>ROZARI TAKATIFU</title>
         <link rel="icon" type="image/x-icon"
         href="/assets/images/favicon.ico.jpg">
         <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     </head>
-    <body style="text-align:center; background-color: whitesmoke;font-size: larger;">
+    <body>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
           <div class="container-fluid">
             <img src="/assets/images/bikira maria.jpg" alt="Bootstrap" width="40" height="40">
@@ -59,137 +117,117 @@
         </nav>
         <hr>
         <br>
-        <h2 style="text-align: center; color: rgba(15, 39, 90, 0.989);" class="display-3"><strong> ROZARI TAKATIFU </strong></h2>
+        <h2 class="display-3"><strong>ROZARI TAKATIFU</strong></h2>
           <img src="/assets/images/bikira wa pentekoste.jpg" class="img-fluid" alt="Bootstrap Themes" width="300" height="300" loading="lazy">
               <br>
 
-            <div style="text-align: center;" class="container-md themed-container text-center ">
-              <p style="font-size: x-large; text-align: center;"id="saa"></p>
-                <h1 style="text-align: center;" class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Namna ya kusali Rozari Takatifu :</h1>
-                      <p style="font-size: x-large; text-align:center;" class="lead">KWA JINA NA BABA...NASADIKI...BABA YETU...
+            <div class="container-md themed-container text-center">
+              <p id="saa"></p>
+                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Namna ya kusali Rozari Takatifu :</h1>
+                      <p class="lead">KWA JINA NA BABA...NASADIKI...BABA YETU...
                         (katika mafungu matatu ya kwanza, inasemwa salamu maria)...Atukuzwe...Twasifu milele...Tendo la kwanza...Baba yetu...Salamu maria 10...Atukuzwe...Twasifu milele...
                         (rudia hayo baada ya kila mafungu 10 ya salamu maria)
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">
-                          <a style="color: white;" href="/historia.html">Historia ya Neokatekumenato</button>
-                          <button type="button" class="btn btn-outline-secondary btn-lg px-4">
-                          <a style="color: red;" href="/waraka.html">Waraka wa Kitume</a></button>
+                          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" onclick="location.href='/historia.html';">
+                          Historia ya Neokatekumenato
+                          </button>
+                          <button type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="location.href='/waraka.html';">
+                          Waraka wa Kitume
+                          </button>
                         </div>
                       </p>
                     </div>
                     <hr>
             
           <div class="container-sm themed-container text-center">
-            <h2 style="background-color: rgba(15, 39, 90, 0.989);font-size: x-large; color: white; text-align:center ;">BARUA YA KITUME “ROZARI YA BIKIRA MARIA” YA BABA MTAKATIFU YOHANE PAULO II</h2>
-        <h2 style="font-size: xx-large; text-align: center;">UTANGULIZI</h2>
-        <p> Rozari ya Bikira Maria, iliyostawi hatua kwa hatua katika milenia ya pili kwa uvuvio wa Roho wa Mungu,  
-          ni sala iliyopendwa na watakatifu wengi na kuhimizwa na Ualimu wa Kanisa. 
-          </p>
-          <p>Katika usahili na udhati wake inazidi kuwa sala muhimu sana, na kutarajiwa kuzaa matunda ya utakatifu katika milenia hii ya tatu iliyoanza tu. 
-          Yenyewe inafaa kuchangia safari ya Kiroho ya Ukristo ambao, baada ya miaka elfu mbili, haujapotewa na uhai wa asili yake 
-          na unajisikia kusukumwa na Roho wa Mungu kwenda kilindini ili kumtangaza tena kwa sauti kubwa Kristo 
-          kwa ulimwengu kuwa ndiye Bwana na Mwokozi, "njia, ukweli na uzima" (Yoh 14:6), "lengo la historia yote, 
-          kiini cha vipeo vya historia na cha ustaarabu wa binadamu". 
-          </p>
-          <p>Kwa kuwa Rozari, ingawa ina sura ya Kimaria, 
-          ni sala ambayo moyo wake ni Kristo. Katika usahili wa sehemu zinazoiunda, inajumlisha ndani mwake udhati wa ujumbe wote wa Injili, ambao Rozari ni kama muhtasari wake.
-          </p>
-          <p>Ndani mwake mna mwangwi wa sala ya Maria, Magnificat, wimbo wake usiopitwa na wakati kwa ajili ya umwilisho wenye kulenga ukombozi wa watu ulioanza katika tumbo lake la kibikira. 
-          Kwa njia yake taifa la Wakristo linataka kujifunza kwa Maria, ili liingizwe hata kuzama ndani ya uzuri wa uso wa Kristo na kung'amua ukuu wa upendo wake. 
-          Kwa njia ya Rozari mwamini anachota wingi wa neema, kama kwa kuupokea mikononi mwa Mama wa Mkombozi.
-          </p>
-        </div>
+            <h2 class="barua-title">BARUA YA KITUME “ROZARI YA BIKIRA MARIA” YA BABA MTAKATIFU YOHANE PAULO II</h2>
+            <h2 class="utangulizi-title">UTANGULIZI</h2>
+            <p>Rozari ya Bikira Maria, iliyostawi hatua kwa hatua katika milenia ya pili kwa uvuvio wa Roho wa Mungu,  
+                ni sala iliyopendwa na watakatifu wengi na kuhimizwa na Ualimu wa Kanisa.
+            </p>
+            <p>Katika usahili na udhati wake inazidi kuwa sala muhimu sana, na kutarajiwa kuzaa matunda ya utakatifu katika milenia hii ya tatu iliyoanza tu. 
+                Yenyewe inafaa kuchangia safari ya Kiroho ya Ukristo ambao, baada ya miaka elfu mbili, haujapotewa na uhai wa asili yake 
+                na unajisikia kusukumwa na Roho wa Mungu kwenda kilindini ili kumtangaza tena kwa sauti kubwa Kristo 
+                kwa ulimwengu kuwa ndiye Bwana na Mwokozi, "njia, ukweli na uzima" (Yoh 14:6), "lengo la historia yote, 
+                kiini cha vipeo vya historia na cha ustaarabu wa binadamu".
+            </p>
+            <p>Kwa kuwa Rozari, ingawa ina sura ya Kimaria, 
+                ni sala ambayo moyo wake ni Kristo. Katika usahili wa sehemu zinazoiunda, inajumlisha ndani mwake udhati wa ujumbe wote wa Injili, ambao Rozari ni kama muhtasari wake.
+            </p>
+            <p>Ndani mwake mna mwangwi wa sala ya Maria, Magnificat, wimbo wake usiopitwa na wakati kwa ajili ya umwilisho wenye kulenga ukombozi wa watu ulioanza katika tumbo lake la kibikira. 
+                Kwa njia yake taifa la Wakristo linataka kujifunza kwa Maria, ili liingizwe hata kuzama ndani ya uzuri wa uso wa Kristo na kung'amua ukuu wa upendo wake. 
+                Kwa njia ya Rozari mwamini anachota wingi wa neema, kama kwa kuupokea mikononi mwa Mama wa Mkombozi.
+            </p>
+          </div>
+
           <div class="container-md themed-container text-center">
-            <h2 style="text-align: center;background-color:rgba(15, 39, 90, 0.989);color: white;font-size: xx-large;">MATENDO YA ROZARI TAKATIFU</h2>
+            <h2 class="matendo-title">MATENDO YA ROZARI TAKATIFU</h2>
             
             <p style="text-align:center;font-size: x-large;">MATENDO YA FURAHA (Jumatatu na Jumamosi)</p>
-            <ol style="text-align: left;font-size: larger;" type="i">
+            <ol class="styled-list" type="i">
                 <li>Tendo la kwanza; 
                     Malaika Gabrieli anampasha habari Maria kuwa atakuwa Mama wa Mungu. 
                     Tumwombe Mungu  atujalie unyenyekevu.</li>
-                    <br>
                 <li>Tendo la pili; 
                     Maria Mtakatifu anakwenda kumtembelea Elizabeti.  
                     Tumwombe Mungu atujalie mapendo ya jirani.</li>
-                    <br>
                 <li>Tendo la tatu; 
                     Yesu anazaliwa Betlehemu.  
                     Tumwombe Mungu atujalie moyo wa ufukara</li>
-                    <br>
                 <li>Tendo la nne; 
                     Yesu anatolewa hekaluni.  
                     Tumwombe Mungu atujalie usafi wa moyo.</li>
-                    <br>
                 <li>Tendo la tano; 
                     Maria anamkuta Yesu hekaluni.  
                     Tumwombe Mungu atujalie kuwatii wakubwa wetu.</li>
-                <br>
             </ol>
           </div>
 
           <div class="container-lg themed-container text-center">
-            <p style="text-align:center;font-size: x-large;">MATENDO YA UCHUNGU (Jumanne na Ijumaa)</p>
-            <ol style="text-align: left;font-size: larger;" type="i">
-             <li>Tendo la kwanza; Yesu anatoka jasho la damu kwa ajili yetu.  
-                Tumwombe Mungu atujalie sikitiko la dhambi.</li>
-                <br>
-            <li>Tendo la pili; Yesu anapigwa kwa mijeledi kwa ajili yetu.  
-                Tumwombe Mungu atujalie kuacha dhambi za uchafu.</li>
-                <br>
-            <li>Tendo la tatu; Yesu anatiwa miiba kichwani kwa ajili yetu. 
-                Tumwombe Mungu atujalie kushinda kiburi.</li>
-                <br>
-            <li>Tendo la nne; Yesu anachukua Msalaba kwa ajili yetu.  
-                Tumwombe Mungu atujalie kuvumilia taabu.</li>
-                <br>
-            <li>Tendo la tano;Yesu anakufa Msalabani. 
-                Tumwombe Mungu atujalie kuwapenda Yesu na Maria.</li>
-                <br>
+            <p class="matendo-heading">MATENDO YA UCHUNGU (Jumanne na Ijumaa)</p>
+            <ol class="styled-list" type="i">
+                <li>Tendo la kwanza; Yesu anatoka jasho la damu kwa ajili yetu.  
+                    Tumwombe Mungu atujalie sikitiko la dhambi.</li>
+                <li>Tendo la pili; Yesu anapigwa kwa mijeledi kwa ajili yetu.  
+                    Tumwombe Mungu atujalie kuacha dhambi za uchafu.</li>
+                <li>Tendo la tatu; Yesu anatiwa miiba kichwani kwa ajili yetu. 
+                    Tumwombe Mungu atujalie kushinda kiburi.</li>
+                <li>Tendo la nne; Yesu anachukua Msalaba kwa ajili yetu.  
+                    Tumwombe Mungu atujalie kuvumilia taabu.</li>
+                <li>Tendo la tano; Yesu anakufa Msalabani. 
+                    Tumwombe Mungu atujalie kuwapenda Yesu na Maria.</li>
             </ol>
-            <p style="text-align:center;font-size: x-large;">MATENDO YA UTUKUFU (Jumatano na Jumapili)</p>
-            <ol style="text-align: left;font-size: larger;" type="i">
-            <li>Tendo la kwanza; Yesu anafufuka.  
+          </div>
+
+          <div class="container-lg themed-container text-center">
+            <p class="matendo-heading">MATENDO YA UTUKUFU (Jumatano na Jumapili)</p>
+            <ol class="styled-list" type="i">
+                <li>Tendo la kwanza; Yesu anafufuka.  
                     Tumwombe Mungu atujalie kugeuka watakatifu.</li>
-                <br>
-            <li>Tendo la pili; Yesu anapaa mbinguni. 
+                <li>Tendo la pili; Yesu anapaa mbinguni. 
                     Tumwombe Mungu atujalie kwenda mbinguni.</li>
-                <br>
-            <li>Tendo la tatu; Roho Mtakatifu anawashukia Mitume. 
+                <li>Tendo la tatu; Roho Mtakatifu anawashukia Mitume. 
                     Tumwombe Mungu atujalie bidii katika dini yetu.</li>
-                <br>
-            <li>Tendo la nne; Bikira Maria anapalizwa mbinguni. 
+                <li>Tendo la nne; Bikira Maria anapalizwa mbinguni. 
                     Tumwombe Mungu atujalie kufa vizuri.</li>
-                <br>
-            <li>Tendo la tano; Bikira Maria anawekwa Malkia mbinguni.  
+                <li>Tendo la tano; Bikira Maria anawekwa Malkia mbinguni.  
                     Tumwombe Mungu atujalie kudumu katika njia njema.</li>
-                    <br>
             </ol>
           </div>
 
           <div class="container-xl themed-container text-center">
-            <p style="text-align:center;font-size: x-large;">MATENDO YA MWANGA (Alhamisi pekee)</p>
-
-            <ol style="text-align: left;font-size: larger;" type="i">
-            <li>Tendo la kwanza; 
-                Yesu anabatizwa Mto Jordani. 
-               Tumwombe Mungu atujalie uaminifu kwa ahadi zetu za ubatizo.</li>
-               <br>
-            <li>Tendo la pili; 
-               Yesu anageuza maji kuwa divai huko Kana.  
-               Tumwombe Mungu atujalie kuukoleza ulimwengu kwa chachu ya enjili.</li>
-              <br> 
-            <li>Tendo la tatu; 
-               Yesu anatangaza Ufalme wa Mungu. 
-               Tumwombe Mungu atujalie kupokea Ufalme wake kwa toba ya kweli.</li>
-               <br>
-            <li>Tendo la nne; 
-               Yesu anageuka sura. 
-               Tumwombe Mungu atujalie neema ya kuung’arisha ulimwengu kwa uso wa Yesu.</li>
-               <br>
-            <li>Tendo la tano; 
-               Yesu anaweka Sakramenti ya Ekaristia.  
-               Tumwombe Mungu atujalie neema ya kujitoa sadaka kwa ajili ya wengine.</li>
-
+            <p class="matendo-heading">MATENDO YA MWANGA (Alhamisi pekee)</p>
+            <ol class="styled-list" type="i">
+                <li>Tendo la kwanza; Yesu anabatizwa Mto Jordani. 
+                    Tumwombe Mungu atujalie uaminifu kwa ahadi zetu za ubatizo.</li>
+                <li>Tendo la pili; Yesu anageuza maji kuwa divai huko Kana.  
+                    Tumwombe Mungu atujalie kuukoleza ulimwengu kwa chachu ya Injili.</li>
+                <li>Tendo la tatu; Yesu anatangaza Ufalme wa Mungu. 
+                    Tumwombe Mungu atujalie kupokea Ufalme wake kwa toba ya kweli.</li>
+                <li>Tendo la nne; Yesu anageuka sura. 
+                    Tumwombe Mungu atujalie neema ya kuung’arisha ulimwengu kwa uso wa Yesu.</li>
+                <li>Tendo la tano; Yesu anaweka Sakramenti ya Ekaristia.  
+                    Tumwombe Mungu atujalie neema ya kujitoa sadaka kwa ajili ya wengine.</li>
             </ol>
           </div>
 
@@ -211,7 +249,7 @@
           <div class="container-xl themed-container text-lg-start">
           <h2 style="text-align: center;background-color:rgba(15, 39, 90, 0.989);color: white;font-size: xx-large;">LITANIA YA BIKIRA MARIA</h2>
           <p>
-            <ol style="text-align: left;font-size: larger;"></ol>
+            <ol style="text-align: left;font-size: larger;">
             <li>Bwana utuhurumie</li>
             <li>Bwana utuhurumie</li>
             <li>Kristo utuhurumie</li>
@@ -274,43 +312,25 @@
             <li>Mwanakodoo wa Mungu uondoaye dhambi za dunia,…………..Utusamehe ee Bwana.</li>
             <li>Mwanakondoo wa Mungu uondoaye dhambi za dunia,…………..Utusikilize ee Bwana</li>
             <li>Mwanakondoo wa Mungu uondoaye dhambi za dunia,…………..Utuhurumie.</li>
-
-
-          </p>
+            </p>
+          </ol>
+          </div>
 
           <div class="container-fluid themed-container text-lg-start">
-            <h2 style="text-align: center;background-color:rgba(15, 39, 90, 0.989);color: white;font-size: xx-large;">ROZARI YA HURUMA YA MUNGU</h2>
- 
-            <p style="text-align: center;"><strong> KWA JINA LA BABA NA LA MWANA NA LA ROHO MTAKATIFU….</strong></p>
-
-              <p>✝
-              <strong> chembe za rozari ya kawaida au Rozari ya Huruma ya Mungu</strong></p>
-              
-             <p> ✝
-              <strong> Baba Yetu Mara x1</strong></p>
-              
-              <p>Baba yetu, uliye mbinguni Jina lako litukuzwe, ufalme wako ufike, utakalo lifanyike duniani kama mbinguni. Utupe leo mkate wetu wa kila siku, utusamehe makosa yetu, kama nasi tunavyowasamehe waliotukosea. Usitutie kishawishini bali utuopoe maovuni. Amina.</p>
-              
-              <p>✝
-              <strong> Salamu Maria Mara (1)</strong>
-              Salam Maria, umejaa neema, Bwana yu nawe, umebarikiwa kuliko wanawake wote na Yesu mzao wa tumbo lako amebarikiwa. Maria mtakatifu mama wa Mungu, utuombee sisi wakosefu sasa na saa ya kufa kwetu. Amina.</p>
-              
-              <p>✝
-              <strong>Nasadiki kwa Mungu, Baba Mwenyezi</strong>, mwumba mbingu na dunia. Na kwa Yesu Kristu, Mwanaye wa pekee, Bwana wetu; aliyetungwa kwa Roho Mtakatifu, akazaliwa na Bikira Maria, akateswa kwa mamlaka ya Ponsyo Pilato, akasulubiwa, akafa, akazikwa, akashukia kuzimu; siku ya tatu akafufuka katika wafu; akapaa mbinguni; amekaa kuume kwa Mungu Baba Mwenyezi; toka huko atakuja kuwahukumu wazima na wafu. Nasadiki kwa Roho Mtakatifu, Kanisa takatifu katoliki, ushirika wa Watakatifu, maondoleo ya dhambi, ufufuko wa miili, uzima wa milele. Amina.</p>
-              
-              <p>✝
-              <strong>Kwa kila penye punje kubwa</strong>
-              Baba wa Milele, ninakutolea Mwili na Damu, Roho na Umungu, wa Mwanao Mpenzi na Bwana wetu Yesu Kristo, kwa malipizi ya dhambi zetu, na za dunia nzima.</p>
-              
-              <p>✝
-              <strong> penye punje ndogo</strong>  :
-              Kwa ajili ya mateso yake makali….. Utuhurumie sisi na dunia nzima.</p>
-              
-              <p>✝
-             <strong> Mwisho wa Rozari</strong>
-              sali mara tatu (3)sala ifuatayo : </p>
-              
-              <p>Mungu Mtakatifu, Mtakatifu mwenye Enzi, Mtakatifu Usiyeweza kufa…… Utuhurumie sisi na dunia nzima.</p>
+            <h2 class="rozari-title">ROZARI YA HURUMA YA MUNGU</h2>
+            <p class="centered-text"><strong>KWA JINA LA BABA NA LA MWANA NA LA ROHO MTAKATIFU….</strong></p>
+            <p>✝
+                <strong>chembe za rozari ya kawaida au Rozari ya Huruma ya Mungu</strong>
+            </p>
+            <p>✝
+                <strong>Baba Yetu Mara x1</strong>
+            </p>
+            <p>Baba yetu, uliye mbinguni Jina lako litukuzwe, ufalme wako ufike, utakalo lifanyike duniani kama mbinguni. Utupe leo mkate wetu wa kila siku, utusamehe makosa yetu, kama nasi tunavyowasamehe waliotukosea. Usitutie kishawishini bali utuopoe maovuni. Amina.</p>
+            <p>✝
+                <strong>Salamu Maria Mara (1)</strong>
+                Salam Maria, umejaa neema, Bwana yu nawe, umebarikiwa kuliko wanawake wote na Yesu mzao wa tumbo lako amebarikiwa. Maria mtakatifu mama wa Mungu, utuombee sisi wakosefu sasa na saa ya kufa kwetu. Amina.
+            </p>
+          </div>
 
           
           <div class="container-fluid themed-container text-center">

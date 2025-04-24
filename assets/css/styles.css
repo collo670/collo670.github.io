@@ -1,0 +1,31 @@
+/* Add your custom styles here */
+.matendo-title {
+    text-align: center;
+    background-color: rgba(15, 39, 90, 0.989);
+    color: white;
+    font-size: xx-large;
+}
+h1 {font-size: xx-large;
+                font: bolder;
+                font-family: 'times new roman';
+            }
+            h2{font-size: xx-large;
+              font: bolder;
+              border: chocolate;
+              background-position: center;
+            }
+            p {font-size: larger;
+            font-family: 'times new roman';
+            }
+            body {
+                  background-color: whitesmoke; /* Fallback color */
+                  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.244), rgba(248, 245, 245, 0.719)), url('/assets/images/bikira\ maria.jpg');
+                  background-repeat: repeat-x;
+                  background-size: cover; /* Ensures the image covers the entire background */
+                  background-position: right top;
+                  background-attachment: fixed;
+}
+            .custom-body {
+                background-color: whitesmoke;
+                font-size: larger;
+            }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             h1 {font-size: xx-large;
@@ -17,12 +18,77 @@
             }
             body {
                   background-color: whitesmoke; /* Fallback color */
-                  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.244), rgba(248, 245, 245, 0.719)), url('/assets/images/bikira\ maria.jpg');
+                  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.244), rgba(248, 245, 245, 0.719)), url('/assets/images/bikira maria.jpg');
                   background-repeat: repeat-x;
                   background-size: cover; /* Ensures the image covers the entire background */
                   background-position: right top;
                   background-attachment: fixed;
-}
+            }
+            /* Moved inline styles to CSS */
+            .custom-body {
+                background-color: whitesmoke;
+                font-size: larger;
+            }
+
+            /* Moved inline styles to CSS */
+            .centered-div {
+                text-align: center;
+            }
+
+            .large-text {
+                font-size: x-large;
+            }
+
+            .welcome-heading {
+                text-align: center;
+            }
+
+            .button-link {
+                color: white;
+                text-decoration: none;
+            }
+
+            .button-link-secondary {
+                color: rgba(15, 39, 90, 0.989);
+                text-decoration: none;
+            }
+
+            /* Moved inline styles to CSS */
+            .papa-heading {
+                background-color: rgba(15, 39, 90, 0.989);
+                font-size: xx-large;
+                color: white;
+                text-align: center;
+            }
+
+            /* Moved inline styles to CSS */
+            .centered-content {
+                text-align: center;
+            }
+
+            .founders-text {
+                text-align: center;
+                font-family: 'Verdana';
+            }
+
+            .justified-text {
+                text-align: justify;
+            }
+
+            /* Moved inline styles to CSS */
+            .carmen-heading {
+                text-align: left;
+            }
+
+            .left-aligned-text {
+                text-align: left;
+            }
+
+            /* Moved inline styles to CSS */
+            .neokatekumenato-heading {
+                text-align: center;
+                color: rgba(15, 39, 90, 0.989);
+            }
           </style>
              <title> ipray</title>
         <link rel="icon" type="image/x-icon"
@@ -32,7 +98,7 @@
         
     </head>
 
-    <body style="background-color: whitesmoke;font-size: larger;">
+    <body class="custom-body">
 
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
           <div class="container-fluid">
@@ -64,82 +130,64 @@
           <hr>
             <br>
         <div class="container-fluid themed-container text-center">
-          <h2 style="text-align: center; color:rgba(15, 39, 90, 0.989) ;" class="display-3"><strong> NEOKATEKUMENATO </strong></h2> 
-           <img src="/assets/images/bikira maria.jpg"  class="img-fluid" alt="bikira maria" width="400" height="400">
-            <br>  
-    <div style="text-align: center;" class="container-md themed-container text-center ">
-          <p style="font-size: x-large; text-align: center;"id="saa"></p>
-            <h1 style="text-align: center;" class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Karibu katika ukurasa wa Njia ya Neokatekumenato (Kenya - Tanzania)</h1>
-            <p style="font-size: x-large;" class="lead">“Lazima kufanya jumuiya za 
+          <h2 class="neokatekumenato-heading display-3"><strong>NEOKATEKUMENATO</strong></h2>
+          <img src="/assets/images/bikira maria.jpg" class="img-fluid" alt="bikira maria" width="400" height="400">
+          <br>
+        </div>
+    <div class="container-md themed-container text-center centered-div">
+          <p class="large-text" id="saa"></p>
+            <h1 class="welcome-heading display-5 fw-bold text-body-emphasis lh-1 mb-3">Karibu katika ukurasa wa Njia ya Neokatekumenato (Kenya - Tanzania)</h1>
+            <p class="lead large-text">“Lazima kufanya jumuiya za 
               Kikristo kama Familia Takatifu ya Nazareti, wanaoishi kwa unyenyekevu, urahisi na sifa. 
-              Mwingine ni Kristo. "</p>
+              Mwingine ni Kristo."</p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-              <button style="text-align: center;" type="button" class="btn btn-primary btn-lg px-4 me-md-2">
-              <a style="color: white;" href="/historia.html">Historia ya Neokatekumenato</button>
-              <button type="button" class="btn btn-outline-secondary btn-lg px-4">
-              <a style="color: rgba(15, 39, 90, 0.989);" href="/rms.html">Seminari</a></button>
+              <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" onclick="location.href='/historia.html';">
+                Historia ya Neokatekumenato
+              </button>
+              <button type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="location.href='/rms.html';">
+                Seminari
+              </button>
             </div>
           </div>
           <br>
           <div class="container-sm themed-container text-center">
-            <h2 style="background-color: rgba(15, 39, 90, 0.989);font-size: xx-large; color: white;text-align: center;"> PAPA PAULO VI KWA JUMUIYA ZA NEOKATEKUMENATO</h2>
-            <div class="container-xl themed-container text-center; text-sm-start">    
-              <P style="text-align: left;">"...Kikundi kingine hiki ni kikundi cha mapadre na walei wanaowakilisha mwendo, njia - tazameni mambo ya baada ya mtaguso
+            <h2 class="papa-heading">PAPA PAULO VI KWA JUMUIYA ZA NEOKATEKUMENATO</h2>
+            <div class="container-xl themed-container text-center text-sm-start">    
+              <p class="left-aligned-text">"...Kikundi kingine hiki ni kikundi cha mapadre na walei wanaowakilisha mwendo, njia - tazameni mambo ya baada ya mtaguso
               - ya jumuiya ya neokatemumenato. Jinsi tunavyopata furaha na tumaini kwa kuwepo kwenu na matendo yenu.
-          </P>
-              <p style="text-align: justify;"> Nia yenu, iliyo kwenu dhahiri na halisi wa kuishi wito wa kikiristo, yatafsiriwa pia katika ushahidi wa maana kwa wengine;
+          </p>
+              <p class="justified-text"> Nia yenu, iliyo kwenu dhahiri na halisi wa kuishi wito wa kikiristo, yatafsiriwa pia katika ushahidi wa maana kwa wengine;
               hasa, kwa kua mko kwa yale ambao mko, katika jitihada kwa uvumbuzi upya wa kupata tena thamani halisiza kikiristo
               , za kweli, amabazo zingeweza vinginevyo kubaki zikifichwa, au zikilala, au uangavu kwa kiadili maalum,
               kwa sababu, kwa roho hii ya kristo, ninyi mwaishi jumuiya hii ya neokatekumenato.
           </p>
-              <p style="text-align: justify;"> Mwaishi na kukuza uamsho huu ni yale mnayoita ninyi aina ya "baada ya ubatizo" itakayoweza kufanya upya katika
-              jumuiya za leo za kikristo matokeo yale ya upevu na ya undani amsbayo katika kanisa la mwanzo yalifanywa na muhula
-              wa matayarisho kabla ya ubatizo; ninyi mwafanya hayo baadaye: kabla au baadaye, si muhimu. Ya maana ni kwamba
-              ninyi mwalenga uhalisi, ukamilifu, ukweli na matunda ya maisha ya kikristo.
-          </p>
-              <p style="text-align: justify;"> Na hayo ni thamani kubwa mno, yanayotufariji sana, narudia tena, yanayotudokeza na kutuongoza matakwa, matumaini
-              ni baraka kwa wingi sana juu yenu, kwa wale wanaosindikiza na kwa wale ambao ninyi kwa amkio lenu na ujumbe wenu 
-              mwaweza mwaweza kuwaamkia kwa niaba yetu".
-          </p>
+          </div>
           <hr>
     </div>
           <div class="container-md themed-container text-center">
-            <div style="text-align: center;">
-              <img src="/assets/images/kiko.jpg" class="text-start; img-fluid" alt="kiko" width="300" height="300">
-              <img src="/assets/images/Camino_Neocatecumenal_Carmen_Hernandez-OG.jpg" class="text-center; img-fluid" alt="ascension" width="300" height="300">
-              <img src="/assets/images/mario.jpg" class="text-center; img-fluid" alt="mario" width="300" height="300">
+            <div class="centered-content">
+              <img src="/assets/images/kiko.jpg" class="text-start img-fluid" alt="kiko" width="300" height="300">
+              <img src="/assets/images/Camino_Neocatecumenal_Carmen_Hernandez-OG.jpg" class="text-center img-fluid" alt="ascension" width="300" height="300">
+              <img src="/assets/images/mario.jpg" class="text-center img-fluid" alt="mario" width="300" height="300">
               <br>
-              <p style="text-align: center;font-family: 'Verdana';">WAANZILISHI WA NJIA YA NEOKATEKUMENATO</p>
+              <p class="founders-text">WAANZILISHI WA NJIA YA NEOKATEKUMENATO</p>
               <hr>
-        </div>
-      </div>
+            </div>
+          </div>
           <div class="container-lg themed-container text-center">
-            <h2 style="background-color: rgba(15, 39, 90, 0.989);font-size: xx-large; color: white; text-align:center ;">PAPA PAULO II KWA JUMUIYA ZA NEOKATEKUMENATO</h2>
-      <div class="container-xl themed-container text-center">
-        <p> (wakati wa matembezi kwa parokia ya Mama yetu wa Sakramenti Takatifu na mashahidi wa Kanada, tar. 2 Nov. 1980)</p>
-
-        <p style="text-align: justify;"> "Sisi, wapendwa sana, twaishi katika muhula ambao mtu aonja, afanya maang'amuzi ya pambano la msingi - nasema 
-    hayo, kwa sababu ndiyo maang'amuzi yangu ya miaka mingi - ya pambano la msingi linaloenea kote. Halipo tu Toleo
-    moja, yapo mengi ulimwenguni: imani na kupinga-imani, injili na kupinga-injili, kanisa na kupinga-kanisa, Mungu na mpinga-Mungu,
-    tukiweza kusema hivi. Hayupo mpinga-Mungu, hawezi kuwepo, lakini aweza kuwepo katika mtu, yawezekana kuundwa katika mtu ukana halisi wa Mungu.
-    Tazama, sisi twaishi maang'amuzi haya ya kihistoria na zaidi kuliko kwenye muhula wa mbele. Kwenye nyakati zetu
-    twahitaji kuvumbua upya imani ya kimsingi, mtu akiishi imani hii kwa njia halisi kabisa. Twahitaji imani ya namna hii.
-    </p>
-       <p style="text-align: justify;"> Natumaini kwamba matumaini yenu yamezaliwa katika mtazamo kama huu na yaweza kuongoza kuelekea uhalisi wa ukristo wenu
-    , wa imani yenu kuelekea uhalisi wa kiinjili. Kwa ninyi mwahitaji moyo mkuu, kujitawala kabisa, na pia kama alivyosema katekista wenu wa kwanza
-    utii mkuu wa kanisa.Hivyo ilivyokua daima. Ushuhuda huu walitoa watakatifu. Uthibitisho huu alitoa Mt. Fransisko,
-    uthibitisho huu walitoa wenye karama mbalimbali kwenye muhula kadhaa wa kanisa. Yahitajika uhalisi huu, ningesema
-    uhalisi huu wa imani, ndiyo, lakini hauna budi kuweka katika ujumla wa kanisa, katika maisha ya kanisa, kwenye uongozi wa kanisa,
-    kwa sababu kanisa kwa ujumla limepokea ROHO MTAKATIFU toka KRISTO katika nafasi za mitume baada ya ufufuko wake...
-</p>
-<p style="text-align: justify;"> Furaha hiyo yapatikana katika mazingira yenu, katika nyimbo zenu,kwenye tabia yenu; furaha hiyo yaweza kua, bila shaka
-    ishara za saikolojia ya watu wa upande wa kusini, lakini mimi natumaini kwamba ni tunda la Roho, na nawatakieni kwamba iwe hivyo.
-    Ndiyo, kanisa lahitaji furaha, kwa sababu furaha kwa maadhimisho yake mablimbali, ni ufunuo wa heri.
-    Tazama, hapa mtu yupo mbele ya wito wake wa msingi, twaweza kusema karibu na kiasili: MTU AMEUMBWA ILI AWE NA HERI, KWA AJILI YA HERI.
-    Akiona heri kama hiyo, akiipata katika madhihirisho ya furaha, aweza kuanza njia. Lakini pia yanibidi kuwaambia: nyimbo,
-    sawa; lakini KWA NJIA HII ROHO NDIO MWANZILISHI".
-</p>
-      </div>
+            <h2 class="papa-heading">PAPA PAULO II KWA JUMUIYA ZA NEOKATEKUMENATO</h2>
+            <div class="container-xl themed-container text-center">
+              <p>(wakati wa matembezi kwa parokia ya Mama yetu wa Sakramenti Takatifu na mashahidi wa Kanada, tar. 2 Nov. 1980)</p>
+              <p class="justified-text">
+                "Sisi, wapendwa sana, twaishi katika muhula ambao mtu aonja, afanya maang'amuzi ya pambano la msingi - nasema 
+                hayo, kwa sababu ndiyo maang'amuzi yangu ya miaka mingi - ya pambano la msingi linaloenea kote. Halipo tu Toleo
+                moja, yapo mengi ulimwenguni: imani na kupinga-imani, injili na kupinga-injili, kanisa na kupinga-kanisa, Mungu na mpinga-Mungu,
+                tukiweza kusema hivi. Hayupo mpinga-Mungu, hawezi kuwepo, lakini aweza kuwepo katika mtu, yawezekana kuundwa katika mtu ukana halisi wa Mungu.
+                Tazama, sisi twaishi maang'amuzi haya ya kihistoria na zaidi kuliko kwenye muhula wa mbele. Kwenye nyakati zetu
+                twahitaji kuvumbua upya imani ya kimsingi, mtu akiishi imani hii kwa njia halisi kabisa. Twahitaji imani ya namna hii.
+              </p>
+            </div>
+          </div>
 <div class="container-fluid themed-container text-center">
   <img src="/assets/images/njia-ya-yneokatekumenato-inabidi-kufanya-jumuiya-za-kikristo.png"  class="img-fluid" alt="carmen" width="400" height="400">
   <br>
@@ -154,8 +202,10 @@
                       <img src="/assets/images/Camino_Neocatecumenal_Carmen_Hernandez-OG.jpg" class="d-block mx-lg-auto img-fluid" alt="photo of carmen hernandez" width="500" height="600" loading="lazy">
                     </div>
                     <div class="col-lg-6">
-                      <h1 style="text-align: left;" class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Kuomba Neema na Upendeleo Kwa Maombezi ya Carmen Hernández</h1>
-                      <p style="text-align: left;">Ee Bwana,
+                      <h1 class="carmen-heading display-5 fw-bold text-body-emphasis lh-1 mb-3">
+                        Kuomba Neema na Upendeleo Kwa Maombezi ya Carmen Hernández
+                      </h1>
+                      <p class="left-aligned-text">Ee Bwana,
                         kwamba kwa kumchagua mtumishi wa Mungu Carmen Hernández
                         kama mwanzilishi mwenza wa Njia ya Neokatekumenato,
                         ulimpa upendo mkuu kwa Yesu Kristo na Kanisa,
@@ -164,13 +214,16 @@
                         na uaminifu katika majaribu ya msalaba;
                         nijalie kwa maombezi yake,
                         na ikiwa ni mapenzi yako, nijalie pia neema ninayokuomba (taja neema unayoiomba).
-                        Kwa njia ya Yesu Kristo, Bwana wetu. Amina.</p>
-                      <p style="text-align: left;">Baba yetu. Salamu Maria. Atukuzwe Baba...</p>
+                        Kwa njia ya Yesu Kristo, Bwana wetu. Amina.
+                      </p>
+                      <p class="left-aligned-text">Baba yetu. Salamu Maria. Atukuzwe Baba...</p>
                       <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">
-                          <a style="color: white;" href="/Carmen Hernandez.html">Carmen</a></button>
-                        <button type="button" class="btn btn-outline-secondary btn-lg px-4">
-                          <a style="color: rgba(15, 39, 90, 0.989);" href="/rozari.html">Rozari</a></button>
+                        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" onclick="location.href='/Carmen Hernandez.html';">
+                          Carmen
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="location.href='/rozari.html';">
+                          Rozari
+                        </button>
                       </div>
                     </div>
                   </div>

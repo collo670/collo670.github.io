@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
-
-            h1 {outline-width: 0px;
-                font-family: 'times new roman'
-            }
-            p {font-family: 'times new roman';
-               font-size: larger;
-               padding: 0px;
-               margin: 20px;
-            }
             body {
-                  background-color: whitesmoke; /* Fallback color */
-                  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.244), rgba(248, 245, 245, 0.719)), url('/assets/images/bikira\ maria.jpg');
-                  background-repeat: repeat-x;
-                  background-size: cover; /* Ensures the image covers the entire background */
-                  background-position: right top;
-                  background-attachment: fixed;
-             }
-
+                background-color: whitesmoke;
+                text-align: center;
+                font-size: larger;
+            }
+            h1 {
+                outline-width: 0px;
+                font-family: 'times new roman';
+            }
+            p {
+                font-family: 'times new roman';
+                font-size: larger;
+                padding: 0px;
+                margin: 20px;
+            }
+            .themed-container {
+                background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.244), rgba(248, 245, 245, 0.719)), url('/assets/images/bikira maria.jpg');
+                background-repeat: repeat-x;
+                background-size: cover;
+                background-position: right top;
+                background-attachment: fixed;
+            }
+            .masifu-heading {
+                color: rgba(15, 39, 90, 0.989);
+            }
         </style>
         <title>MASIFU YA ASUBUHI</title>
-        <link rel="icon" type="image/x-icon"
-        href="/assets/images/favicon.ico.jpg">
+        <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico.jpg">
         <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
         <link rel="stylesheet" href="/assets/css/pdf-viewer.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
     </head>
-    <body style="background-color: whitesmoke;text-align: center;font-size:larger;">
+    <body class="custom-body">
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
           <div class="container-fluid">
             <img src="/assets/images/bikira maria.jpg" alt="Bootstrap" width="40" height="40">
@@ -44,10 +51,12 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="/rms.html">Redemptoris Mater</a>
+                </li>
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="/historia.html">Kuhusu Neo</a>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/rozari.html">Rozari</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/rozari.html">Rozari</a>
                 </li>
               </ul>
               <form class="d-flex" role="search">
@@ -59,78 +68,68 @@
         </nav>
         <hr>
         <br>
-          <div class="container-xxl themed-container text-center">
-            <h2 style="color: rgba(15, 39, 90, 0.989);" class="display-3"><strong> MASIFU YA ASUBUHI </strong></h2>
-    
-    <div class="pdf-viewer-wrapper">
-        <!-- Controls container -->
-        <div class="controls-container">
-            <div class="search-controls">
-                <input type="text" id="search-input" placeholder="Search in PDF...">
-                <button id="search-button">Search</button>
-                <button id="prev-match">Previous Match</button>
-                <button id="next-match">Next Match</button>
-                <span id="search-info"></span>
+        <div class="container-xxl themed-container text-center">
+            <h2 class="masifu-heading display-3"><strong> MASIFU YA ASUBUHI </strong></h2>
+            <div class="pdf-viewer-wrapper">
+                <div class="controls-container">
+                    <div class="search-controls">
+                        <input type="text" id="search-input" placeholder="Search in PDF...">
+                        <button id="search-button">Search</button>
+                        <button id="prev-match">Previous Match</button>
+                        <button id="next-match">Next Match</button>
+                        <span id="search-info"></span>
+                    </div>
+                    <div class="pdf-controls">
+                        <button id="prev">Previous</button>
+                        <span>Page: <span id="page-num"></span> / <span id="page-count"></span></span>
+                        <button id="next">Next</button>
+                    </div>
+                    <div class="zoom-controls">
+                        <button id="zoom-out" title="Zoom Out">−</button>
+                        <span id="zoom-level">100%</span>
+                        <button id="zoom-in" title="Zoom In">+</button>
+                    </div>
+                </div>
+                <div class="pdf-container">
+                    <div class="canvas-wrapper">
+                        <canvas id="pdf-render"></canvas>
+                    </div>
+                </div>
             </div>
-            <div class="pdf-controls">
-                <button id="prev">Previous</button>
-                <span>Page: <span id="page-num"></span> / <span id="page-count"></span></span>
-                <button id="next">Next</button>
-            </div>
-            <div class="zoom-controls">
-              <button id="zoom-out" title="Zoom Out">−</button>
-              <span id="zoom-level">100%</span>
-              <button id="zoom-in" title="Zoom In">+</button>
-          </div>
+            <p>
+                <a href="/assets/documents/asubuhi/Masifu ya Asubuhi kwa majuma manne complete vol 1of2.pdf" download>Download PDF</a>
+            </p>
         </div>
-        
-        <!-- PDF container etc-->
-        <div class="pdf-container">
-            <div class="canvas-wrapper">
-                <canvas id="pdf-render"></canvas>
-            </div>
-        </div>
-    </div>
-    
-    <p>
-        <a href="/assets/documents/asubuhi/Masifu ya Asubuhi kwa majuma manne complete vol 1of2.pdf" download>Download PDF</a>
-    </p>
-</div>
-          <div class="container-fluid themed-container text-center">
-            <div class="container">
-              <footer class="py-3 my-4">
-                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                  <li class="nav-item">
-                    <a href="/index.html" class="nav-link px-2 text-body-secondary">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="/rms.html" class="nav-link px-2 text-body-secondary">Redemptoris Mater</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="/rozari.html" class="nav-link px-2 text-body-secondary">Rozari</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="/nyimbo.html" class="nav-link px-2 text-body-secondary">Amefufuka</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="/historia.html" class="nav-link px-2 text-body-secondary">About</a>
-                  </li>
-                </ul>
-                <p class="text-center text-body-secondary">&copy; iPray 2025, All rights reserved</p>
-              </footer>
-            </div>
-              </body>
-          </div>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
-    <script>
-        d = new Date();
-        document.getElementById("demo").innerHTML = d.toDateString();
-    </script>
-    <script src="/assets/js/pdf-viewer.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            initPDFViewer('/assets/documents/asubuhi/Masifu ya Asubuhi kwa majuma manne complete vol 1of2.pdf');
-        });
-    </script>
-</body>
+        <footer class="py-3 my-4">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+              <li class="nav-item">
+                <a href="/index.html" class="nav-link px-2 text-body-secondary">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="/rms.html" class="nav-link px-2 text-body-secondary">Redemptoris Mater</a>
+              </li>
+              <li class="nav-item">
+                <a href="/rozari.html" class="nav-link px-2 text-body-secondary">Rozari</a>
+              </li>
+              <li class="nav-item">
+                <a href="/nyimbo.html" class="nav-link px-2 text-body-secondary">Amefufuka</a>
+              </li>
+              <li class="nav-item">
+                <a href="/historia.html" class="nav-link px-2 text-body-secondary">About</a>
+              </li>
+            </ul>
+            <p class="text-center text-body-secondary">&copy; iPray 2025, All rights reserved</p>
+        </footer>
+        <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+        <script>
+            d = new Date();
+            document.getElementById("demo").innerHTML = d.toDateString();
+        </script>
+        <script src="/assets/js/pdf-viewer.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                initPDFViewer('/assets/documents/asubuhi/Masifu ya Asubuhi kwa majuma manne complete vol 1of2.pdf');
+            });
+        </script>
+    </body>
 </html>
