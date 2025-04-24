@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
-            h1 {outline-color: darkslategrey;
-                outline-width: 0px;
-                font-family: 'times new roman'
+            body {
+                background-color: whitesmoke;
+                font-size: larger;
             }
-            p {font-family: 'times new roman';
-            font-size: larger;
-            padding: 0px;
-              margin: 20px;
-             text-align: justify;  
-        }
-        body {
-                  background-color: whitesmoke; /* Fallback color */
-                  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.244), rgba(248, 245, 245, 0.719)), url('/assets/images/Camino_Neocatecumenal_Carmen_Hernandez-OG.jpg');
-                  background-repeat: repeat-x;
-                  background-size: cover; /* Ensures the image covers the entire background */
-                  background-position: right top;
-                  background-attachment: fixed;
-             }
-
-
+            h1 {
+                outline-color: darkslategrey;
+                outline-width: 0px;
+                font-family: 'times new roman';
+            }
+            p {
+                font-family: 'times new roman';
+                font-size: larger;
+                padding: 0px;
+                margin: 20px;
+                text-align: justify;
+            }
+            .centered-content {
+                text-align: center;
+            }
+            .large-text {
+                font-size: x-large;
+            }
         </style>
         <title>Carmen Hernandez</title>
-        <link rel="icon" type="image/x-icon"
-        href="/assets/images/favicon.ico.jpg">
+        <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico.jpg">
         <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     </head>
-    <body style="background-color:whitesmoke;font-size: larger;">
-      <hr>
+    <body class="custom-body">
+        <hr>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
           <div class="container-fluid">
             <img src="/assets/images/bikira maria.jpg" alt="Bootstrap" width="40" height="40">
@@ -45,10 +47,12 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="/rms.html">Redemptoris Mater</a>
+                </li>
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="/historia.html">Kuhusu Neo</a>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/rozari.html">Rozari</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/rozari.html">Rozari</a>
                 </li>
               </ul>
               <form class="d-flex" role="search">
@@ -61,25 +65,25 @@
         <hr>
         <br>
         <div class="container-fluid themed-container text-center">
-        <h2 style="text-align: center; color: rgba(15, 39, 90, 0.989);" class="display-3"><strong>HISTORIA YA CARMEN HERNANDEZ</strong></strong></h2> 
+          <h2 class="display-3"><strong>HISTORIA YA CARMEN HERNANDEZ</strong></h2>
           <img src="/assets/images/carmen.jpg" class="img-fluid" alt="Bootstrap Themes" width="500" height="500">
-            </div>
-            <br>
-            <div style="text-align: center;" class="container-md themed-container text-center ">
-              <p style="font-size: x-large; text-align: center;"id="saa"></p>
-                <h1 style="text-align: center;" class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Historia Juu ya Carmen Hernández</h1>
-                      <p style="text-align: center;" class="lead;">KUZALIWA KWAKE - Novemba 24, 1930     KUFA KWAKE - 19 Julai 2016.
-                      </p>
-                    </div>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                      <button style="text-align: center;" type="button" class="btn btn-primary btn-lg px-4 me-md-2">
-                      <a style="color: white;" href="/historia.html">Historia ya Neokatekumenato</button>
-                      <button type="button" class="btn btn-outline-secondary btn-lg px-4">
-                      <a style="color: rgba(15, 39, 90, 0.989);" href="/rms.html">Seminari</a></button>
-                    </div>
-                    <hr>
-                    
-          <div class="container-sm themed-container text-center">
+        </div>
+        <br>
+        <div class="container-md themed-container text-center centered-content">
+          <p class="large-text" id="saa"></p>
+          <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Historia Juu ya Carmen Hernández</h1>
+          <p class="lead">KUZALIWA KWAKE - Novemba 24, 1930 KUFA KWAKE - 19 Julai 2016.</p>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" onclick="location.href='/historia.html';">
+            Historia ya Neokatekumenato
+          </button>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="location.href='/rms.html';">
+            Seminari
+          </button>
+        </div>
+        <hr>
+        <div class="container-sm themed-container text-center">
             <h2 style="background-color: rgba(15, 39, 90, 0.989);font-size: xx-large; color: white;text-align: center;"> Wasifu Wa Carmen (Novemba 24, 1930. † Madrid, Julai 19, 2016)</h2>
          <p>Carmen alikuwa, pamoja na Kiko, mwanzilishi wa Njia. 
             Alizaliwa <strong>Ólvega (Soria, España) mnamo Novemba 24, 1930</strong>. 

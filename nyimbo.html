@@ -3,15 +3,46 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
-            h1 {outline-color: darkslategrey;
-                outline-width: 0px;
-                font-family: 'times new roman'
+            h1, h2 {
+                text-align: center;
             }
-            p {font-family: 'times new roman';
-            font-size: larger;
-            padding: 0px;
-               margin: 20px;
+
+            h2.display-3 {
+                color: rgba(15, 39, 90, 0.989);
             }
+
+            p {
+                font-family: 'times new roman';
+                font-size: larger;
+                text-align: justify;
+            }
+
+            .large-text {
+                font-size: x-large;
+            }
+
+            .lead-text {
+                font-size: xx-large;
+                text-align: center;
+            }
+
+            .btn-primary a {
+                color: white;
+                text-decoration: none;
+            }
+
+            .btn-outline-secondary a {
+                color: rgba(15, 39, 90, 0.989);
+                text-decoration: none;
+            }
+
+            .wasifu-heading {
+                background-color: rgba(15, 39, 90, 0.989);
+                font-size: xx-large;
+                color: white;
+                text-align: center;
+            }
+
             body {
                   background-color: whitesmoke; /* Fallback color */
                   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.244), rgba(248, 245, 245, 0.719)), url('/assets/images/bikira\ maria.jpg');
@@ -21,6 +52,45 @@
                   background-attachment: fixed;
              }
 
+            .justified-text {
+                text-align: justify;
+                font-size: larger;
+            }
+
+            /* Moved inline styles to CSS */
+            .utaratibu-heading {
+                text-align: center;
+                background-color: rgba(15, 39, 90, 0.989);
+                color: white;
+                font-size: xx-large;
+            }
+
+            .song-list {
+                text-align: justify;
+                font-size: larger;
+                margin: 20px;
+            }
+
+            .singers-heading {
+                background-color: rgba(15, 39, 90, 0.989);
+                color: white;
+                font-size: xx-large;
+                text-align: center;
+            }
+
+            .introduction-heading {
+                font-size: xx-large;
+                text-align: center;
+            }
+
+            .amefufuka-heading {
+                text-align: center;
+            }
+
+            .download-link {
+                color: rgba(15, 39, 90, 0.989);
+                text-decoration: none;
+            }
         </style>
         <title>AMEFUFUKA</title>
         <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico.jpg">
@@ -28,7 +98,7 @@
         <link rel="stylesheet" href="/assets/css/pdf-viewer.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
     </head>
-    <body style="background-color:whitesmoke;font-size: larger;">
+    <body class="custom-body">
 
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
           <div class="container-fluid">
@@ -44,10 +114,12 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="/rms.html">Redemptoris Mater</a>
+                </li>
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="/historia.html">Kuhusu Neo</a>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/rozari.html">Rozari</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/rozari.html">Rozari</a>
                 </li>
               </ul>
               <form class="d-flex" role="search">
@@ -60,77 +132,94 @@
         <hr>
         <br>
         <div class="container-fluid themed-container text-center">
-        <h2 style="text-align: center; color: rgba(15, 39, 90, 0.989);" class="display-3"><strong> AMEFUFUKA </strong></h2>
-        <img src="/assets/images/familia takatifu.jpg" class="img-fluid" alt="Bootstrap Themes" width="350" height="350">
-        <br>
-        <div style="text-align: center;" class="container-md themed-container text-center ">
-          <p style="font-size: x-large; text-align: center;"id="saa"></p>
-            <h1 style="text-align: center;" class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Toleo la Pasaka 1992</h1>
-              <p style="font-size: xx-large;text-align: center;" class="lead">Ikiwa Zaburi yasali, salini;ikilia, lieni; ikishukuru, furahini; ikitumaini, tumainieni; ikiogopa, ogopeni. Mt. Agostino - maelezo juu ya zaburi</p>
+          <h2 class="display-3"><strong> AMEFUFUKA </strong></h2>
+          <img src="/assets/images/familia takatifu.jpg" class="img-fluid" alt="Bootstrap Themes" width="350" height="350">
+          <br>
+          <div class="container-md themed-container text-center">
+            <p class="large-text" id="saa"></p>
+            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Toleo la Pasaka 1992</h1>
+            <p class="lead-text">Ikiwa Zaburi yasali, salini; ikilia, lieni; ikishukuru, furahini; ikitumaini, tumainieni; ikiogopa, ogopeni. Mt. Agostino - maelezo juu ya zaburi</p>
+          </div>
         </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-          <button style="text-align: center;" type="button" class="btn btn-primary btn-lg px-4 me-md-2">
-          <a style="color: white;" href="/historia.html">Historia ya Neokatekumenato</button>
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4">
-          <a style="color: rgba(15, 39, 90, 0.989);" href="/rms.html">Seminari</a></button>
+          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" onclick="location.href='/historia.html';">
+            Historia ya Neokatekumenato
+          </button>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="location.href='/rms.html';">
+            Seminari
+          </button>
         </div>
         <hr>
           <div class="container-sm themed-container text-center">
-            <h2 style="font-size: xx-large;text-align: center;">UTANGULIZI</h2>
+            <h2 class="introduction-heading">UTANGULIZI</h2>
         </div>
 
           <div class="container-md themed-container text-center">
-            <p style="text-align:justify;font-size:larger;">
+            <p class="justified-text">
               Katika njia ya neokatekumenato, twaona leo kutokea huduma nyenyekevu na ya msingi kama ilivyo ile ya mwimbaji.
-          <p style="text-align:justify;font-size:larger;">Kwenye safari hii ya malezi ya imani, mwimbaji anao utume wa kusaidia na kuunda jumuiya ya kilitrujia, au, vizuri zaidi,
-              wa kuitunga upya; wa kubadili mara nyingi uwingi uwe umoja wa ibada:kwa sauti moja, kwa moyo mmoja,
-              na kwa roho moja. ibada ya kirohoinayodhihirishwa katika tendo la kilitrujia la jumuiya.
-              Ibada ya kiraho iliyo chemchemi isiyokauka.mmoja atupendaye hivyo, atupendaye ingawa tu adui zake; chemchemiya uongofu,
-              chemchemi ya imani.</p>
-          <p style="text-align:justify;font-size:larger;">Lengo la karatasi hizi sio tu kueneza nyimbo, bali kuwatolea waimbaji wa jumuiya za neokatekumenato
-              maneno ya asili na manota ya muziki ili waimbaji wafuate vizuri zaidi mapokeo ya midomowaliyopokea.
-              Kwa hio tulifikiri vema kuzitolea kwwenye mtiririko wote wa njia inavyoendelea, iwe kama
+            </p>
+            <p class="justified-text">
+              Kwenye safari hii ya malezi ya imani, mwimbaji anao utume wa kusaidia na kuunda jumuiya ya kilitrujia, au, vizuri zaidi,
+              wa kuitunga upya; wa kubadili mara nyingi uwingi uwe umoja wa ibada: kwa sauti moja, kwa moyo mmoja,
+              na kwa roho moja. Ibada ya kiroho inayodhihirishwa katika tendo la kilitrujia la jumuiya.
+              Ibada ya kiraho iliyo chemchemi isiyokauka. Mmoja atupendaye hivyo, atupendaye ingawa tu adui zake; chemchemi ya uongofu,
+              chemchemi ya imani.
+            </p>
+            <p class="justified-text">
+              Lengo la karatasi hizi sio tu kueneza nyimbo, bali kuwatolea waimbaji wa jumuiya za neokatekumenato
+              maneno ya asili na manota ya muziki ili waimbaji wafuate vizuri zaidi mapokeo ya midomo waliyoipokea.
+              Kwa hio tulifikiri vema kuzitolea kwenye mtiririko wote wa njia inavyoendelea, iwe kama
               zilivyozaliwa kwenye miaka, iwe kama inavyosindikiza njia hii yetu, kuanzia katekesi na kuendelea kwenye 
-              hatua mbalimbali.</p>
-          <p style="text-align:justify;font-size:larger;">Tuligawa nyimbo kwa rangi tofauti, ili kutoa mwelekeo na maendeleo haya yenye hatua, yanayoonyeshwa
-              kwenye nyakati tofauti za uchunguzi, ambamo nyimbo kadhaa zinakabidhiwa.</p>
-              <hr>
+              hatua mbalimbali.
+            </p>
+            <p class="justified-text">
+              Tuligawa nyimbo kwa rangi tofauti, ili kutoa mwelekeo na maendeleo haya yenye hatua, yanayoonyeshwa
+              kwenye nyakati tofauti za uchunguzi, ambamo nyimbo kadhaa zinakabidhiwa.
+            </p>
+            <hr>
           </div>
 
           <div class="container-lg themed-container text-center">
-            <h2 style="text-align: center;background-color:rgba(15, 39, 90, 0.989); color: white;font-size:xx-large;">UTARATIBU WA NYIMBO</h2>
-            <ol style="text-align:justify;font-size:larger; margin: 20px;" type="1">
+            <h2 class="utaratibu-heading">UTARATIBU WA NYIMBO</h2>
+            <ol class="song-list">
                 <li>rangi ya njano, kwa maadhimisho ya kilitrujia; (UK 1-30)</li>
                 <li>rangi ya kijivu kwa nyimbo za kumega mkate; (kurasa kadhaa)</li>
                 <li>rangi nyeupe kwa nyimbo za prekatekumenato; (UK 31-200)</li>
-                <li>rangi ya kijani kwa nyimbo za katekumenato; ( UK 201-260)</li>
+                <li>rangi ya kijani kwa nyimbo za katekumenato; (UK 201-260)</li>
                 <li>rangi ya blu angani kwa nyimbo za Uteuzi. (UK 261-300)</li>
             </ol>
             <hr>
           </div>
 
           <div class="container-xl themed-container text-center">
-            <p style="text-align:justify;font-size:larger;">Ili kupata kwa urahisi zaidi nyimbo, ipo orodha ya jumla (ambayo tuliweka zaidi ya kichwa kimoja
+            <p class="justified-text">
+              Ili kupata kwa urahisi zaidi nyimbo, ipo orodha ya jumla (ambayo tuliweka zaidi ya kichwa kimoja
               kwa kila wimbo, kulingana na matokeo ya mapokeo kadhaa), orodha ya kibibilia (kwa sababu nyimbo zetu zote
               hua zimechukuliwa toka bibilia) na ipo ya kusaidia, kulingana na majira na nyakati za maadhimisho, hasa za ekaristi.
-          </p>
-          <h3 style="background-color: rgba(15, 39, 90, 0.989); color:white;font-size: xx-large;text-align: center;"> MAELEZO KWA WAIMBAJI WOTE</h3>
-      <p style="text-align:justify;font-size:larger;">Toleo hili PASAKA 1992 imeangaliwa upya na makosa kadhaa yameangaliwa upya na KIKO aliyetaka kusahihisha 
+            </p>
+            <h3 class="singers-heading">MAELEZO KWA WAIMBAJI WOTE</h3>
+            <p class="justified-text">
+              Toleo hili PASAKA 1992 imeangaliwa upya na makosa kadhaa yameangaliwa upya na KIKO aliyetaka kusahihisha 
               manota na maneno fulani yalioandikwa tofauti kabla; yawezekana kwamba ipo kosa fulani la uchapishaji, lakini angalia
               kwamba isiwe linalotakiwa hasa na kiko: manota fulani yaleta sauti za pekee kwa masikio ya wale wanaojua muziki kidogo
-              yaweza kuwafadhaisha, lakini yatakiwa makusudi ili kusababisha sauti maalum.</p>
-      <p style="text-align:justify;font-size:larger;">Kwa hiyo, waimbaji wanaoitwa kufanya huduma kwa Liturjia ya jumuiya zetu, hata wakiwa na kanda za tafsiri
+              yaweza kuwafadhaisha, lakini yatakiwa makusudi ili kusababisha sauti maalum.
+            </p>
+            <p class="justified-text">
+              Kwa hiyo, waimbaji wanaoitwa kufanya huduma kwa Liturjia ya jumuiya zetu, hata wakiwa na kanda za tafsiri
               tofauti za wimbo ule ule, zote zilizoimbwa na kusindikizwa na guitar kwa nafasi mbalimbali, waalikwa kufuata 
               kwa unyenyekevu maneno yaliyochapwa hapa, kwani ndiyo maneno yaliyochaguliwa na kikundi cha makatekista wajibikaji wa
               Tanzania na Kenya: hivi kwamba pia jumuiya mbalimbali zinazounganishwa pengine kwa Liturjia, ziweze kuhifadhi
-              umoja katika kuimba.</p>
-      <p style="text-align:justify;font-size:larger;">Waimbaji ambao wana la kusema juu ya nyimbo au juu ya maneno, waalikwa kuwasiliana mara na kikundi
+              umoja katika kuimba.
+            </p>
+            <p class="justified-text">
+              Waimbaji ambao wana la kusema juu ya nyimbo au juu ya maneno, waalikwa kuwasiliana mara na kikundi
               cha makatekista wajibikaji, ili kuhakikisha ikiwa yapo makosa katika uchapishaji au utafsiri, kitu kinachowezekana daima.
-          </p>
-      <hr>
-</div>
+            </p>
+            <hr>
+          </div>
+
           <div class="container-xxl themed-container text-center">
-            <h2 style="text-align: center;">AMEFUFUKA</h2>
+            <h2 class="amefufuka-heading">AMEFUFUKA</h2>
             <!--etc-->
             
             <div class="pdf-viewer-wrapper">
@@ -162,7 +251,7 @@
             </div>
             
             <p>
-                <a style="color: rgba(15, 39, 90, 0.989);" href="/assets/documents/amefufuka/00Amefufuka_ALL.pdf" download>Download PDF</a>
+                <a class="download-link" href="/assets/documents/amefufuka/00Amefufuka_ALL.pdf" download>Download PDF</a>
             </p>
         </div>
         
@@ -205,4 +294,5 @@
     </script>
 </body>
 </html>
-        
+``` 
+
