@@ -5,8 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             body {
-                background-color: whitesmoke;
                 font-size: larger;
+                background-color: whitesmoke; /* Fallback color */
+                  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.244), rgba(248, 245, 245, 0.719)), url('/assets/images/bikira maria.jpg');
+                  background-repeat: repeat-x;
+                  background-size: cover; /* Ensures the image covers the entire background */
+                  background-position: right top;
+                  background-attachment: fixed;
             }
             h1 {
                 outline-color: darkslategrey;
@@ -15,7 +20,7 @@
             }
             p {
                 font-family: 'times new roman';
-                font-size: larger;
+                font-size: x-large;
                 padding: 0px;
                 margin: 20px;
                 text-align: justify;
@@ -26,6 +31,11 @@
             .large-text {
                 font-size: x-large;
             }
+            .kuzaliwa{
+              font-weight: bold;
+              text-align: center;
+            }
+            
         </style>
         <title>Carmen Hernandez</title>
         <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico.jpg">
@@ -65,20 +75,23 @@
         <hr>
         <br>
         <div class="container-fluid themed-container text-center">
-          <h2 class="display-3"><strong>HISTORIA YA CARMEN HERNANDEZ</strong></h2>
+          <div class="container-sm themed-container text-center centered-content"></div>
+          <h2 style="color: rgba(15, 39, 90, 0.989);" class="display-3"><strong>HISTORIA YA CARMEN HERNANDEZ</strong></h2>
           <img src="/assets/images/carmen.jpg" class="img-fluid" alt="Bootstrap Themes" width="500" height="500">
         </div>
         <br>
-        <div class="container-md themed-container text-center centered-content">
+        <div class="container-sm themed-container text-center centered-content">
           <p class="large-text" id="saa"></p>
           <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Historia Juu ya Carmen Hernández</h1>
-          <p class="lead">KUZALIWA KWAKE - Novemba 24, 1930 KUFA KWAKE - 19 Julai 2016.</p>
+         
         </div>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+        <div class="container-sm themed-container text-center centered-content"></div>
+        <div class="container-fluid themed-container text-center">
+          <p class="kuzaliwa">KUZALIWA KWAKE - Novemba 24, 1930 KUFA KWAKE - Julai 19 2016.</p>
           <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" onclick="location.href='/historia.html';">
             Historia ya Neokatekumenato
           </button>
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="location.href='/rms.html';">
+          <button style="color: white;" type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="location.href='/rms.html';">
             Seminari
           </button>
         </div>

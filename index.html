@@ -8,12 +8,11 @@
                 font: bolder;
                 font-family: 'times new roman';
             }
-            h2{font-size: xx-large;
-              font: bolder;
-              border: chocolate;
+            h2{
+              font-size: xx-large;
               background-position: center;
             }
-            p {font-size: larger;
+            p {font-size: x-large;
             font-family: 'times new roman';
             }
             body {
@@ -88,6 +87,40 @@
             .neokatekumenato-heading {
                 text-align: center;
                 color: rgba(15, 39, 90, 0.989);
+                font-weight: 900;
+            }
+
+            .kauli{
+              font-weight: bold;
+            }
+
+            .barua{
+              background-color: rgb(7, 100, 213);
+              color: white;
+              height: 50px;
+              border-radius: 10px;
+              outline:none ;
+              cursor: pointer;
+              border: none;
+              transition: opacity 0.15s;
+            }
+            .barua:hover{
+              opacity: 1 ;
+              background-color: black;
+            }
+            .whatsapp{
+              background-color: rgb(24, 228, 136);
+              color: white;
+              height: 50px;
+              border-radius: 10px;
+              outline:none ;
+              cursor: pointer;
+              border: none;
+
+            }
+            .nav-item{
+              font-weight: 500;
+              
             }
           </style>
              <title> ipray</title>
@@ -131,20 +164,21 @@
             <br>
         <div class="container-fluid themed-container text-center">
           <h2 class="neokatekumenato-heading display-3"><strong>NEOKATEKUMENATO</strong></h2>
+          <h1 class="welcome-heading display-5 fw-bold text-body-emphasis lh-1 mb-3">Karibu katika ukurasa wa Njia ya Neokatekumenato (Kenya - Tanzania)</h1>
           <img src="/assets/images/bikira maria.jpg" class="img-fluid" alt="bikira maria" width="400" height="400">
           <br>
         </div>
     <div class="container-md themed-container text-center centered-div">
           <p class="large-text" id="saa"></p>
-            <h1 class="welcome-heading display-5 fw-bold text-body-emphasis lh-1 mb-3">Karibu katika ukurasa wa Njia ya Neokatekumenato (Kenya - Tanzania)</h1>
-            <p class="lead large-text">“Lazima kufanya jumuiya za 
+            
+            <p class="kauli">“Lazima kufanya jumuiya za 
               Kikristo kama Familia Takatifu ya Nazareti, wanaoishi kwa unyenyekevu, urahisi na sifa. 
               Mwingine ni Kristo."</p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-center">
               <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" onclick="location.href='/historia.html';">
                 Historia ya Neokatekumenato
               </button>
-              <button type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="location.href='/rms.html';">
+              <button style="color: white;" type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="location.href='/rms.html';">
                 Seminari
               </button>
             </div>
@@ -221,7 +255,7 @@
                         <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" onclick="location.href='/Carmen Hernandez.html';">
                           Carmen
                         </button>
-                        <button type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="location.href='/rozari.html';">
+                        <button style="color: white;" type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="location.href='/rozari.html';">
                           Rozari
                         </button>
                       </div>
@@ -231,8 +265,8 @@
           </section>
         </div>
       </section>
-      <hr>
         </div>
+        <hr>
 
           <div class="container-xxl themed-container text-center">
             <div class="container col-xl-10 col-xxl-8 px-4 py-5">
@@ -240,14 +274,15 @@
                 <div class="col-lg-7 text-center text-lg-start">
                   <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Wasiliana Nasi</h1>
                   <p class="col-lg-10 fs-4"> Unaweza kutuandikia kwa kutumia barua pepe hapo chini au kupitia Whatsapp yetu. Tuanfurahi daima kusikia kutoka kwako .</p>
-                </div>
-                <div class="col-md-10 mx-auto col-lg-5">
+                  </div>
+                
+              <div class="col-md-10 mx-auto col-lg-5">
                   <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
                     <div class="form-floating mb-3">
                       <input type="text" class="form-control" id="floatingInput" placeholder="name">
                       <label for="floatingInput">First Name</label>
                     </div>
-                    <div class="form-floating mb-3">
+                <div class="form-floating mb-3">
                       <input type="text" class="form-control" id="floatingpassword" placeholder="name">
                       <label for="floatingInput">Last Name</label>
                     </div>
@@ -264,6 +299,13 @@
                   </form>
                 </div>
               </div>
+               <!--feedback email-->
+               <button class="barua" href="mailto:otienocollo95@gmail.com"
+                 target="_blank"
+                  title="Wasiliana nasi kwa Email"> Tuma barua pepe</button>
+                  <button class="whatsapp" href=""
+                         target="_blank"
+                         title="Tutumie ujumbe WhatsApp"> WhatsApp</button>
             </div>
           </div>
 

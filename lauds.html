@@ -5,9 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             body {
-                background-color: whitesmoke;
                 text-align: center;
                 font-size: larger;
+                background-color: whitesmoke; /* Fallback color */
+                  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.244), rgba(248, 245, 245, 0.719)), url('/assets/images/bikira maria.jpg');
+                  background-repeat: repeat-x;
+                  background-size: cover; /* Ensures the image covers the entire background */
+                  background-position: right top;
+                  background-attachment: fixed;
             }
             h1 {
                 outline-width: 0px;
@@ -29,6 +34,7 @@
             .masifu-heading {
                 color: rgba(15, 39, 90, 0.989);
             }
+  
         </style>
         <title>MASIFU YA ASUBUHI</title>
         <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico.jpg">
