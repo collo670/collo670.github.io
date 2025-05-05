@@ -123,6 +123,64 @@
               font-weight: 500;
               
             }
+            .comment-section {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .comment {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comment-author {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .comment-date {
+            font-size: 0.8em;
+            color: #888;
+        }
+
+        .comment-input-area {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            resize: none; /* Prevent vertical resizing by default */
+            box-sizing: border-box;  /* Include padding and border in element's total width and height */
+        }
+
+        .comment-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .comment-button:hover {
+            background-color: #0056b3;
+        }
+
+        .comment-input-container {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+        .error-message {
+            color: red;
+            margin-top: 5px;
+        }
           </style>
              <title> ipray</title>
         <link rel="icon" type="image/x-icon"
@@ -276,10 +334,14 @@
                   <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Wasiliana Nasi</h1>
                   <p class="col-lg-10 fs-4"> Unaweza kutuandikia kwa kutumia barua pepe hapo chini au kupitia Whatsapp yetu. Tuanfurahi daima kusikia kutoka kwako .</p>
                   </div>
-                
+
+
               <div class="col-md-10 mx-auto col-lg-5">
                   <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
-                    <div class="form-floating mb-3">
+                      <h2>Comments</h2>
+                      <textarea id="comment-input" class="comment-input-area" placeholder="Write a comment..." rows="4"></textarea>
+                        <span id="comment-error" class="error-message"></span>
+                <div class="form-floating mb-3">
                       <input type="text" class="form-control" id="floatingInput" placeholder="name">
                       <label for="floatingInput">First Name</label>
                     </div>
@@ -301,12 +363,9 @@
                 </div>
               </div>
                <!--feedback email-->
-               <button class="barua" href="mailto:otienocollo95@gmail.com"
-                 target="_blank"
-                  title="Wasiliana nasi kwa Email"> Tuma barua pepe</button>
-                  <button class="whatsapp" href=""
-                         target="_blank"
-                         title="Tutumie ujumbe WhatsApp"> WhatsApp</button>
+               <button class="barua" onclick="openGmailComposeWithDetails()">Tuma barua pepe</button>
+
+                  <button class="whatsapp" onclick="openWhatsApp()"> WhatsApp</button>
             </div>
           </div>
 
@@ -352,6 +411,70 @@
     else {greeting = "GOOD EVENING";
     }
 document.getElementById("saa").innerHTML = greeting
+
+function openGmailComposeWithDetails() {
+    const recipient = "otienocollo95@gmail.com";
+    const subject = "Feedback";
+    const body = "";
+    window.location.href = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${encodeURIComponent(recipient)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
+
+  function openWhatsApp() {
+  // Replace with a valid phone number.  Include the country code!
+  const phoneNumber = "+255742101013";
+
+  // Optional:  Add a message.
+  const message = "Hello! I'd like to chat.";
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+  window.open(whatsappUrl, '_blank');
+}
+
+const commentsContainer = document.getElementById('comments-container');
+        const commentInput = document.getElementById('comment-input');
+        const submitCommentButton = document.getElementById('submit-comment');
+        const commentError = document.getElementById('comment-error');
+
+        let comments = [
+            { author: "John Doe", date: "2024-07-24", text: "This is a great post!" },
+            { author: "Jane Smith", date: "2024-07-24", text: "I agree!" },
+        ];
+
+        function displayComments() {
+            commentsContainer.innerHTML = '';
+            comments.forEach(comment => {
+                const commentDiv = document.createElement('div');
+                commentDiv.classList.add('comment');
+                commentDiv.innerHTML = `
+                    <span class="comment-author">${comment.author}</span>
+                    <span class="comment-date">${comment.date}</span>
+                    <p>${comment.text}</p>
+                `;
+                commentsContainer.appendChild(commentDiv);
+            });
+        }
+
+        function addComment() {
+            const commentText = commentInput.value.trim();
+            if (commentText === "") {
+                commentError.textContent = "Please enter a comment before submitting.";
+                return;
+            }
+            commentError.textContent = ""; // Clear any previous error message.
+
+            const newComment = {
+                author: "Current User", //  In a real app, get the actual user's name.
+                date: new Date().toISOString().split('T')[0], // Get YYYY-MM-DD
+                text: commentText
+            };
+            comments.push(newComment);
+            displayComments();
+            commentInput.value = ''; // Clear the input after submitting
+        }
+
+        submitCommentButton.addEventListener('click', addComment);
+
+        displayComments(); // Initial display of comments
 
     </script>
  </html>
