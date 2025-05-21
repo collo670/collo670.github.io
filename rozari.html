@@ -1,397 +1,415 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            h1 {outline-color: darkslategrey;
-                outline-width: 0px;
-                font-family: 'times new roman'
-            }
-            p {font-family: 'times new roman';
-                 font-size: larger;
-                 padding: 0px;
-                 margin: 20px;
-                 text-align: left;
-              }
-            body {
-                  background-color: whitesmoke; /* Fallback color */
-                  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.244), rgba(248, 245, 245, 0.719)), url('/assets/images/bikira\ maria.jpg');
-                  background-repeat: repeat-x;
-                  background-size: cover; /* Ensures the image covers the entire background */
-                  background-position: right top;
-                  background-attachment: fixed;
-             }
-            
-            h2.display-3 {
-                text-align: center;
-                color: rgba(15, 39, 90, 0.989);
-            }
-            .container-md p {
-                font-size: x-large;
-                text-align: center;
-            }
-            .btn-primary a {
-                color: white;
-                text-decoration: none;
-            }
-            .btn-outline-secondary a {
-                color:white;
-                text-decoration: none;
-            }
-            .themed-container h2 {
-                background-color: rgba(15, 39, 90, 0.989);
-                color: white;
-                font-size: xx-large;
-                text-align: center;
-            }
-            /* Moved inline styles to CSS */
-            .matendo-heading {
-                text-align: center;
-                font-size: x-large;
-                font-weight: 600;
-            }
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rozari Takatifu</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico.jpg">
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <style>
+        /* CSS Variables for easier theme management */
+        :root {
+            --primary-blue: rgba(15, 39, 90, 0.989);
+            --light-grey: whitesmoke;
+            --text-font-body: 'Times New Roman', serif;
+            --text-font-heading: 'Times New Roman', serif;
+        }
 
-            .styled-list {
-                text-align: left;
-                font-size: larger;
-                margin: 20px;
-                padding: 0;
-                list-style-type: lower-roman;
-            }
+        body {
+            background-color: var(--light-grey);
+            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.244), rgba(248, 245, 245, 0.719)), url('/assets/images/bikira maria.jpg');
+            background-repeat: no-repeat; /* Changed to no-repeat with cover */
+            background-size: cover;
+            background-position: center top;
+            background-attachment: fixed;
+            font-family: var(--text-font-body);
+            font-size: larger;
+            color: #333; /* Default text color */
+        }
 
-            .styled-list li {
-              font-family: 'times new roman';
-              font-size: larger;
-                margin-bottom: 10px; /* Adds spacing between list items */
-            }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--text-font-heading);
+            color: var(--primary-blue);
+            text-align: center;
+            margin-bottom: 1rem; /* Consistent spacing below headings */
+        }
 
-            .barua-title {
-                background-color: rgba(15, 39, 90, 0.989);
-                font-size: x-large;
-                color: white;
-                text-align: center;
-            }
+        p {
+            font-family: var(--text-font-body);
+            font-size: larger;
+            margin: 1rem 0; /* Add vertical spacing */
+            text-align: justify; /* Justify text for cleaner blocks */
+            line-height: 1.6;
+            padding: 0 15px; /* Slight padding on sides for readability */
+        }
 
-            .utangulizi-title {
-                font-size: xx-large;
-                text-align: center;
-            }
+        /* Specific styles for elements within the structure */
+        .page-title {
+            padding-top: 5rem; /* Space for fixed navbar */
+            padding-bottom: 2rem;
+        }
 
-            .centered-text {
-                text-align: center;
-            }
+        .themed-container {
+           /* background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque background */
+            padding: 2rem 1rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-            .litania{
-              font-family: 'times new roman';
-              font-size: x-large;
-              font-weight: 600;
-            }
-            .lead{
-              text-align: left;
-            }
-        </style>
-        <title>Rozari Takatifu</title>
-        <link rel="icon" type="image/x-icon"
-        href="/assets/images/favicon.ico.jpg">
-        <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-    </head>
-    <body>
+        .themed-container h2,
+        .barua-title,
+        .rozari-title {
+            background-color: var(--primary-blue);
+            color: white;
+            font-size: xx-large;
+            padding: 1rem 0;
+            margin-bottom: 1.5rem; /* Space below title block */
+        }
+
+        .matendo-heading {
+            font-size: x-large;
+            font-weight: 600;
+            margin-top: 2rem; /* Space above each "MATENDO" section */
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .styled-list {
+            text-align: left;
+            font-size: larger;
+            margin: 20px auto; /* Center the list itself */
+            padding: 0;
+            list-style-type: lower-roman;
+            max-width: 800px; /* Limit width for better readability */
+        }
+
+        .styled-list li {
+            font-family: var(--text-font-body);
+            font-size: larger;
+            margin-bottom: 10px;
+  
+        }
+
+        .litania {
+            font-family: var(--text-font-body);
+            font-size: x-large;
+            font-weight: 600;
+            text-align: left; /* Keep litany text aligned left */
+            padding-left: 20px; /* Indent for readability */
+        }
+
+        .centered-text {
+            text-align: center;
+        }
+
+        /* Specific styling for buttons */
+        .btn-page-link {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out; /* Smooth transition for hover */
+        }
+        .btn-outline-secondary .btn-page-link {
+            color: var(--primary-blue); /* Ensure proper text color for outline button */
+        }
+        .btn-outline-secondary .btn-page-link:hover {
+            color: white; /* Text color on hover for outline button */
+        }
+    </style>
+</head>
+<body>
+    <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-          <div class="container-fluid">
-            <img style="text-align: center;" src="/assets/images/bikira maria.jpg" alt="Bootstrap" width="40" height="40">
-            <a class="navbar-brand" href="/index.html">ipray</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-              <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/lauds.html">Masifu ya Asubuhi</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/rms.html">Redemptoris Mater</a>
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/historia.html">Kuhusu Neo</a>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/rozari.html">Rozari</a>
-                </li>
-              </ul>
-              <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
+            <div class="container-fluid">
+                <img src="/assets/images/bikira maria.jpg" alt="Picha ya Bikira Maria" width="40" height="40" class="rounded-circle me-2">
+                <a class="navbar-brand" href="/index.html">ipray</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/lauds.html">Masifu ya Asubuhi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/rms.html">Redemptoris Mater</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/historia.html">Kuhusu Neo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/rozari.html">Rozari</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Tafuta..." aria-label="Tafuta">
+                        <button class="btn btn-outline-success" type="submit">Tafuta</button>
+                    </form>
+                </div>
             </div>
-          </div>
         </nav>
-        <hr>
-        <br>
-        
-        <h2 class="display-3"><strong>ROZARI TAKATIFU</strong></h2>
-        <div class="container-md themed-container text-center">
-          <img src="/assets/images/bikira wa pentekoste.jpg" class="img-fluid" alt="Bootstrap Themes" width="300" height="300">
-              <br>
+    </header>
 
-            <div class="container-md themed-container text-center">
-              <p id="saa"></p>
-                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Namna ya kusali Rozari Takatifu :</h1>
-                      <p style="text-align: left;" class="lead">KWA JINA NA BABA...NASADIKI...BABA YETU...
-                        (katika punje tatu za kwanza, inasemwa salamu maria tukiomba atuzidishie Imani, Matumaini na Mapendo)...Atukuzwe...Twasifu milele...Tendo la kwanza (kufuatana na mafungu ya matendo katika siku husika)...Baba yetu...Salamu maria 10...Atukuzwe...Twasifu milele...
-                        (rudia hayo baada ya kila punje 10 ndogo za salamu maria)
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" onclick="location.href='/historia.html';">
-                          Historia ya Neokatekumenato
-                          </button>
-                          <button style="color: white;" type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="location.href='/waraka.html';">
-                          Waraka wa Kitume
-                          </button>
-                        </div>
-                      </p>
-                    </div>
-                    <hr>
-            
-          <div class="container-sm themed-container text-sm-start">
+    <main class="container py-4">
+        <h2 class="display-3 page-title"><strong>ROZARI TAKATIFU</strong></h2>
+
+        <section class="themed-container text-center">
+            <img src="/assets/images/bikira wa pentekoste.jpg" class="img-fluid rounded shadow-sm mb-4 d-block mx-auto" alt="Bikira Maria wa Pentekoste" width="300" height="300">
+
+            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Namna ya Kusali Rozari Takatifu:</h1>
+            <p id="current-date" class="lead fw-bold text-center"></p> <p class="lead" style="text-align: left;">KWA JINA NA BABA...NASADIKI...BABA YETU...
+                (katika punje tatu za kwanza, inasemwa salamu maria tukiomba atuzidishie Imani, Matumaini na Mapendo)...Atukuzwe...Twasifu milele...Tendo la kwanza (kufuatana na mafungu ya matendo katika siku husika)...Baba yetu...Salamu maria 10...Atukuzwe...Twasifu milele...
+                (rudia hayo baada ya kila punje 10 ndogo za salamu maria)
+            </p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" onclick="location.href='/historia.html';">
+                    <a href="/historia.html" class="btn-page-link">Historia ya Neokatekumenato</a>
+                </button>
+                <button type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="location.href='/waraka.html';">
+                    <a href="/waraka.html" class="btn-page-link">Waraka wa Kitume</a>
+                </button>
+            </div>
+        </section>
+
+        <section class="themed-container">
             <h2 class="barua-title">BARUA YA KITUME “ROZARI YA BIKIRA MARIA” YA BABA MTAKATIFU YOHANE PAULO II</h2>
-            
-            <p>Rozari ya Bikira Maria, iliyostawi hatua kwa hatua katika milenia ya pili kwa uvuvio wa Roho wa Mungu,  
+
+            <p><strong>Rozari ya Bikira Maria</strong>, iliyostawi hatua kwa hatua katika milenia ya pili kwa uvuvio wa Roho wa Mungu,
                 ni sala iliyopendwa na watakatifu wengi na kuhimizwa na Ualimu wa Kanisa.
             </p>
-            <p>Katika usahili na udhati wake inazidi kuwa sala muhimu sana, na kutarajiwa kuzaa matunda ya utakatifu katika milenia hii ya tatu iliyoanza tu. 
-                Yenyewe inafaa kuchangia safari ya Kiroho ya Ukristo ambao, baada ya miaka elfu mbili, haujapotewa na uhai wa asili yake 
-                na unajisikia kusukumwa na Roho wa Mungu kwenda kilindini ili kumtangaza tena kwa sauti kubwa Kristo 
-                kwa ulimwengu kuwa ndiye Bwana na Mwokozi, "njia, ukweli na uzima" (Yoh 14:6), "lengo la historia yote, 
+            <p>Katika usahili na udhati wake inazidi kuwa sala muhimu sana, na kutarajiwa kuzaa matunda ya utakatifu katika milenia hii ya tatu iliyoanza tu.
+                Yenyewe inafaa kuchangia safari ya Kiroho ya Ukristo ambao, baada ya miaka elfu mbili, haujapotewa na uhai wa asili yake
+                na unajisikia kusukumwa na Roho wa Mungu kwenda kilindini ili kumtangaza tena kwa sauti kubwa Kristo
+                kwa ulimwengu kuwa ndiye Bwana na Mwokozi, "njia, ukweli na uzima" (Yoh 14:6), "lengo la historia yote,
                 kiini cha vipeo vya historia na cha ustaarabu wa binadamu".
             </p>
-            <p>Kwa kuwa Rozari, ingawa ina sura ya Kimaria, 
+            <p>Kwa kuwa Rozari, ingawa ina sura ya Kimaria,
                 ni sala ambayo moyo wake ni Kristo. Katika usahili wa sehemu zinazoiunda, inajumlisha ndani mwake udhati wa ujumbe wote wa Injili, ambao Rozari ni kama muhtasari wake.
             </p>
-            <p>Ndani mwake mna mwangwi wa sala ya Maria, Magnificat, wimbo wake usiopitwa na wakati kwa ajili ya umwilisho wenye kulenga ukombozi wa watu ulioanza katika tumbo lake la kibikira. 
-                Kwa njia yake taifa la Wakristo linataka kujifunza kwa Maria, ili liingizwe hata kuzama ndani ya uzuri wa uso wa Kristo na kung'amua ukuu wa upendo wake. 
+            <p>Ndani mwake mna mwangwi wa sala ya Maria, Magnificat, wimbo wake usiopitwa na wakati kwa ajili ya umwilisho wenye kulenga ukombozi wa watu ulioanza katika tumbo lake la kibikira.
+                Kwa njia yake taifa la Wakristo linataka kujifunza kwa Maria, ili liingizwe hata kuzama ndani ya uzuri wa uso wa Kristo na kung'amua ukuu wa upendo wake.
                 Kwa njia ya Rozari mwamini anachota wingi wa neema, kama kwa kuupokea mikononi mwa Mama wa Mkombozi.
             </p>
-          </div>
+        </section>
 
-          <div class="container-md themed-container text-center">
-            <h2 class="matendo-title">MATENDO YA ROZARI TAKATIFU</h2>
-            
+        <section class="themed-container">
+            <h2 class="themed-container h2">MATENDO YA ROZARI TAKATIFU</h2>
+
             <p class="matendo-heading">MATENDO YA FURAHA (Jumatatu na Jumamosi)</p>
-            <ol class="styled-list" type="i">
-                <li>Tendo la kwanza; 
-                    Malaika Gabrieli anampasha habari Maria kuwa atakuwa Mama wa Mungu. 
-                    Tumwombe Mungu  atujalie unyenyekevu.</li>
-                <li>Tendo la pili; 
-                    Maria Mtakatifu anakwenda kumtembelea Elizabeti.  
+            <ol class="styled-list">
+                <li>Tendo la kwanza; Malaika Gabrieli anampasha habari Maria kuwa atakuwa Mama wa Mungu.
+                    Tumwombe Mungu atujalie unyenyekevu.</li>
+                <li>Tendo la pili; Maria Mtakatifu anakwenda kumtembelea Elizabeti.
                     Tumwombe Mungu atujalie mapendo ya jirani.</li>
-                <li>Tendo la tatu; 
-                    Yesu anazaliwa Betlehemu.  
+                <li>Tendo la tatu; Yesu anazaliwa Betlehemu.
                     Tumwombe Mungu atujalie moyo wa ufukara</li>
-                <li>Tendo la nne; 
-                    Yesu anatolewa hekaluni.  
+                <li>Tendo la nne; Yesu anatolewa hekaluni.
                     Tumwombe Mungu atujalie usafi wa moyo.</li>
-                <li>Tendo la tano; 
-                    Maria anamkuta Yesu hekaluni.  
+                <li>Tendo la tano; Maria anamkuta Yesu hekaluni.
                     Tumwombe Mungu atujalie kuwatii wakubwa wetu.</li>
             </ol>
-          </div>
+        </section>
 
-          <div class="container-lg themed-container text-center">
+        <section class="themed-container">
             <p class="matendo-heading">MATENDO YA UCHUNGU (Jumanne na Ijumaa)</p>
-            <ol class="styled-list" type="i">
-                <li>Tendo la kwanza; Yesu anatoka jasho la damu kwa ajili yetu.  
+            <ol class="styled-list">
+                <li>Tendo la kwanza; Yesu anatoka jasho la damu kwa ajili yetu.
                     Tumwombe Mungu atujalie sikitiko la dhambi.</li>
-                <li>Tendo la pili; Yesu anapigwa kwa mijeledi kwa ajili yetu.  
+                <li>Tendo la pili; Yesu anapigwa kwa mijeledi kwa ajili yetu.
                     Tumwombe Mungu atujalie kuacha dhambi za uchafu.</li>
-                <li>Tendo la tatu; Yesu anatiwa miiba kichwani kwa ajili yetu. 
+                <li>Tendo la tatu; Yesu anatiwa miiba kichwani kwa ajili yetu.
                     Tumwombe Mungu atujalie kushinda kiburi.</li>
-                <li>Tendo la nne; Yesu anachukua Msalaba kwa ajili yetu.  
+                <li>Tendo la nne; Yesu anachukua Msalaba kwa ajili yetu.
                     Tumwombe Mungu atujalie kuvumilia taabu.</li>
-                <li>Tendo la tano; Yesu anakufa Msalabani. 
+                <li>Tendo la tano; Yesu anakufa Msalabani.
                     Tumwombe Mungu atujalie kuwapenda Yesu na Maria.</li>
             </ol>
-          </div>
+        </section>
 
-          <div class="container-lg themed-container text-center">
+        <section class="themed-container">
             <p class="matendo-heading">MATENDO YA UTUKUFU (Jumatano na Jumapili)</p>
-            <ol class="styled-list" type="i">
-                <li>Tendo la kwanza; Yesu anafufuka.  
+            <ol class="styled-list">
+                <li>Tendo la kwanza; Yesu anafufuka.
                     Tumwombe Mungu atujalie kugeuka watakatifu.</li>
-                <li>Tendo la pili; Yesu anapaa mbinguni. 
+                <li>Tendo la pili; Yesu anapaa mbinguni.
                     Tumwombe Mungu atujalie kwenda mbinguni.</li>
-                <li>Tendo la tatu; Roho Mtakatifu anawashukia Mitume. 
+                <li>Tendo la tatu; Roho Mtakatifu anawashukia Mitume.
                     Tumwombe Mungu atujalie bidii katika dini yetu.</li>
-                <li>Tendo la nne; Bikira Maria anapalizwa mbinguni. 
+                <li>Tendo la nne; Bikira Maria anapalizwa mbinguni.
                     Tumwombe Mungu atujalie kufa vizuri.</li>
-                <li>Tendo la tano; Bikira Maria anawekwa Malkia mbinguni.  
+                <li>Tendo la tano; Bikira Maria anawekwa Malkia mbinguni.
                     Tumwombe Mungu atujalie kudumu katika njia njema.</li>
             </ol>
-          </div>
+        </section>
 
-          <div class="container-xl themed-container text-center">
+        <section class="themed-container">
             <p class="matendo-heading">MATENDO YA MWANGA (Alhamisi pekee)</p>
-            <ol class="styled-list" type="i">
-                <li>Tendo la kwanza; Yesu anabatizwa Mto Jordani. 
+            <ol class="styled-list">
+                <li>Tendo la kwanza; Yesu anabatizwa Mto Jordani.
                     Tumwombe Mungu atujalie uaminifu kwa ahadi zetu za ubatizo.</li>
-                <li>Tendo la pili; Yesu anageuza maji kuwa divai huko Kana.  
+                <li>Tendo la pili; Yesu anageuza maji kuwa divai huko Kana.
                     Tumwombe Mungu atujalie kuukoleza ulimwengu kwa chachu ya Injili.</li>
-                <li>Tendo la tatu; Yesu anatangaza Ufalme wa Mungu. 
+                <li>Tendo la tatu; Yesu anatangaza Ufalme wa Mungu.
                     Tumwombe Mungu atujalie kupokea Ufalme wake kwa toba ya kweli.</li>
-                <li>Tendo la nne; Yesu anageuka sura. 
+                <li>Tendo la nne; Yesu anageuka sura.
                     Tumwombe Mungu atujalie neema ya kuung’arisha ulimwengu kwa uso wa Yesu.</li>
-                <li>Tendo la tano; Yesu anaweka Sakramenti ya Ekaristia.  
+                <li>Tendo la tano; Yesu anaweka Sakramenti ya Ekaristia.
                     Tumwombe Mungu atujalie neema ya kujitoa sadaka kwa ajili ya wengine.</li>
             </ol>
-          </div>
+        </section>
 
-          <div class="container-xl themed-container text-lg-start">
-             <h2 style="text-align: center;background-color:rgba(15, 39, 90, 0.989);color: white;font-size: xx-large;">SALAMU MALKIA</h2>
-             <p>Salamu Malkia, Mama mwenye huruma,
-              Uzima, tulizo na matumaini yetu, salamu.
-              Tunakusihi ugenini hapa,
-              Sisi wana wa Eva.
-              Tunakulilia tukilalamika na kuhuzunika,
-              Bondeni huku kwenye machozi.
-              Haya basi, Mwombezi wetu,
-              Utuangalie kwa macho yako yenye huruma.
-              Na mwisho wa ugeni huu, utuonyeshe Yesu,
-              Mzao mbarikiwa wa tumbo lako.
-              Ee mpole, ee mwema,
-              Ee mpendevu, Bikira Maria.</p>
-
-          <div class="container-xl themed-container text-lg-start">
-          <h2 style="text-align: center;background-color:rgba(15, 39, 90, 0.989);color: white;font-size: xx-large;">LITANIA YA BIKIRA MARIA</h2>
-          <p>
-            <ol class="litania" style="text-align: left">
-            <li>Bwana utuhurumie</li>
-            <li>Bwana utuhurumie</li>
-            <li>Kristo utuhurumie</li>
-            <li>Bwana utuhurumie</li>
-            <li>Bwana utuhurumie</li>
-            <li>Kristo utusikie</li>
-            <li>Kristo utusikilize</li>
-            <li>Mungu Baba wa Mbinguni,…… Utuhurumie</li>
-            <li>Mungu Mwana Mkombozi wa dunia ……… Utuhurumie</li>
-            <li>Mungu Roho Mtakatifu …….. Utuhurumie</li>
-            <li>Utatu Mtakatifu Mungu Mmoja …….. Utuhurumie</li>
-            <li>Maria Mtakatifu ………. utuombee</li>
-            <li>Mzazi Mtakatifu wa Mungu …….. utuombee</li>
-            <li>Bikira Mtakatifu Mkuu wa Mabikira …….. utuombee</li>
-            <li>Mama wa Kristo ……… utuombee</li>
-            <li>Mama wa Neema ya Mungu ………….. utuombee</li>
-            <li>Mama Mtakatifu sana ……… utuombee</li>
-            <li>Mama mwenye usafi wa Moyo ……….. utuombee</li>
-            <li>Mama mwenye ubikira ……….. utuombee</li>
-            <li>Mama usiye na doa ……….. utuombee</li>
-            <li>Mama mpendelevu ………. utuombee</li>
-            <li>Mama mstajabivu ………. utuombee</li>
-            <li>Mama wa Muumba ………. utuombee</li>
-            <li>Mama wa Mkombozi ………….. utuombee</li>
-            <li>Mama wa Kanisa……….. utuombee</li>
-            <li>Bikira mwenye utaratibu ………….. utuombee</li>
-            <li>Bikira mwenye heshima ………….. utuombee</li>
-            <li>Bikira mwenye sifa ………….. utuombee</li>
-            <li>Bikira mwenye uwezo ………….. utuombee</li>
-            <li>Bikra mweye huruma ………….. utuombee</li>
-            <li>Bikra mwaminifu………….. utuombee</li>
-            <li>Kioo cha haki ………….. utuombee</li>
-            <li>Kikao cha hekima ………….. utuombee</li>
-            <li>Sababu ya furaha yetu ………….. utuombee</li>
-            <li>Chombo cha neema ………….. utuombee</li>
-            <li>Chombo cha kuheshimiwa ………….. utuombe</li>
-            <li>Chombo bora cha ibada ………….. utuombee</li>
-            <li>Waridi lenye fumbo ………….. utuombee</li>
-            <li>Mnara wa Daudi ………….. utuombee</li>
-            <li>Mnara wa pembe ………….. utuombee</li>
-            <li>Nyumba ya dhahabu ………….. utuombee</li>
-            <li>Sanduku la Agano ………….. utuombee</li>
-            <li>Mlango wa Mbingu ………….. utuombee</li>
-            <li>Nyota ya asubuhi ………….. utuombee</li>
-            <li>Afya ya wagonjwa ………….. utuombee</li>
-            <li>Kimbilio la wakosefu ………….. utuombee</li>
-            <li>Mtuliza wenye huzuni ………….. utuombee</li>
-            <li>Msaada wa waKristo ………….. utuombee</li>
-            <li>Malkia wa Malaika ………….. utuombee</li>
-            <li>Malkia wa Mababu ………….. utuombee</li>
-            <li>Malkia wa Manabii ………….. utuombee</li>
-            <li>Malkia wa Mitume ………….. utuombee</li>
-            <li>Malkia wa Mashahidi ………….. utuombee</li>
-            <li>Malkia wa Waungama dini ………….. utuombee</li>
-            <li>Malkia wa Mabikira ………….. utuombee</li>
-            <li>Malkia wa Watakatifu wote ………….. utuombee</li>
-            <li>Malkia uliyepalizwa Mbinguni ………….. utuombee</li>
-            <li>Malkia wa Rozari takatifu ………….. utuombee</li>
-            <li>Malkia wa amani ………….. utuombee</li>
-            <li>Mwanakodoo wa Mungu uondoaye dhambi za dunia,…………..Utusamehe ee Bwana.</li>
-            <li>Mwanakondoo wa Mungu uondoaye dhambi za dunia,…………..Utusikilize ee Bwana</li>
-            <li>Mwanakondoo wa Mungu uondoaye dhambi za dunia,…………..Utuhurumie.</li>
+        <section class="themed-container">
+            <h2 class="themed-container h2">SALAMU MALKIA</h2>
+            <p class="text-justify">
+                Salamu Malkia, Mama mwenye huruma,<br>
+                Uzima, tulizo na matumaini yetu, salamu.<br>
+                Tunakusihi ugenini hapa,<br>
+                Sisi wana wa Eva.<br>
+                Tunakulilia tukilalamika na kuhuzunika,<br>
+                Bondeni huku kwenye machozi.<br>
+                Haya basi, Mwombezi wetu,<br>
+                Utuangalie kwa macho yako yenye huruma.<br>
+                Na mwisho wa ugeni huu, utuonyeshe Yesu,<br>
+                Mzao mbarikiwa wa tumbo lako.<br>
+                Ee mpole, ee mwema,<br>
+                Ee mpendevu, Bikira Maria.
             </p>
-          </ol>
-          </div>
+        </section>
 
-          <div class="container-fluid themed-container text-lg-start">
+        <section class="themed-container">
+            <h2 class="themed-container h2">LITANIA YA BIKIRA MARIA</h2>
+            <p>
+                <ol class="litania">
+                    <li>Bwana utuhurumie</li>
+                    <li>Bwana utuhurumie</li>
+                    <li>Kristo utuhurumie</li>
+                    <li>Bwana utuhurumie</li>
+                    <li>Bwana utuhurumie</li>
+                    <li>Kristo utusikie</li>
+                    <li>Kristo utusikilize</li>
+                    <li>Mungu Baba wa Mbinguni,…… Utuhurumie</li>
+                    <li>Mungu Mwana Mkombozi wa dunia ……… Utuhurumie</li>
+                    <li>Mungu Roho Mtakatifu …….. Utuhurumie</li>
+                    <li>Utatu Mtakatifu Mungu Mmoja …….. Utuhurumie</li>
+                    <li>Maria Mtakatifu ………. utuombee</li>
+                    <li>Mzazi Mtakatifu wa Mungu …….. utuombee</li>
+                    <li>Bikira Mtakatifu Mkuu wa Mabikira …….. utuombee</li>
+                    <li>Mama wa Kristo ……… utuombee</li>
+                    <li>Mama wa Neema ya Mungu ………….. utuombee</li>
+                    <li>Mama Mtakatifu sana ……… utuombee</li>
+                    <li>Mama mwenye usafi wa Moyo ……….. utuombee</li>
+                    <li>Mama mwenye ubikira ……….. utuombee</li>
+                    <li>Mama usiye na doa ……….. utuombee</li>
+                    <li>Mama mpendelevu ………. utuombee</li>
+                    <li>Mama mstajabivu ………. utuombee</li>
+                    <li>Mama wa Muumba ………. utuombee</li>
+                    <li>Mama wa Mkombozi ………….. utuombee</li>
+                    <li>Mama wa Kanisa……….. utuombee</li>
+                    <li>Bikira mwenye utaratibu ………….. utuombee</li>
+                    <li>Bikira mwenye heshima ………….. utuombee</li>
+                    <li>Bikira mwenye sifa ………….. utuombee</li>
+                    <li>Bikira mwenye uwezo ………….. utuombee</li>
+                    <li>Bikra mweye huruma ………….. utuombee</li>
+                    <li>Bikra mwaminifu………….. utuombee</li>
+                    <li>Kioo cha haki ………….. utuombee</li>
+                    <li>Kikao cha hekima ………….. utuombee</li>
+                    <li>Sababu ya furaha yetu ………….. utuombee</li>
+                    <li>Chombo cha neema ………….. utuombee</li>
+                    <li>Chombo cha kuheshimiwa ………….. utuombe</li>
+                    <li>Chombo bora cha ibada ………….. utuombee</li>
+                    <li>Waridi lenye fumbo ………….. utuombee</li>
+                    <li>Mnara wa Daudi ………….. utuombee</li>
+                    <li>Mnara wa pembe ………….. utuombee</li>
+                    <li>Nyumba ya dhahabu ………….. utuombee</li>
+                    <li>Sanduku la Agano ………….. utuombee</li>
+                    <li>Mlango wa Mbingu ………….. utuombee</li>
+                    <li>Nyota ya asubuhi ………….. utuombee</li>
+                    <li>Afya ya wagonjwa ………….. utuombee</li>
+                    <li>Kimbilio la wakosefu ………….. utuombee</li>
+                    <li>Mtuliza wenye huzuni ………….. utuombee</li>
+                    <li>Msaada wa waKristo ………….. utuombee</li>
+                    <li>Malkia wa Malaika ………….. utuombee</li>
+                    <li>Malkia wa Mababu ………….. utuombee</li>
+                    <li>Malkia wa Manabii ………….. utuombee</li>
+                    <li>Malkia wa Mitume ………….. utuombee</li>
+                    <li>Malkia wa Mashahidi ………….. utuombee</li>
+                    <li>Malkia wa Waungama dini ………….. utuombee</li>
+                    <li>Malkia wa Mabikira ………….. utuombee</li>
+                    <li>Malkia wa Watakatifu wote ………….. utuombee</li>
+                    <li>Malkia uliyepalizwa Mbinguni ………….. utuombee</li>
+                    <li>Malkia wa Rozari takatifu ………….. utuombee</li>
+                    <li>Malkia wa amani ………….. utuombee</li>
+                    <li>Mwanakodoo wa Mungu uondoaye dhambi za dunia,…………..Utusamehe ee Bwana.</li>
+                    <li>Mwanakondoo wa Mungu uondoaye dhambi za dunia,…………..Utusikilize ee Bwana</li>
+                    <li>Mwanakondoo wa Mungu uondoaye dhambi za dunia,…………..Utuhurumie.</li>
+                </ol>
+            </p>
+        </section>
+
+        <section class="themed-container">
             <h2 class="rozari-title">ROZARI YA HURUMA YA MUNGU</h2>
             <p class="centered-text"><strong>KWA JINA LA BABA NA LA MWANA NA LA ROHO MTAKATIFU….</strong></p>
-            <p>✝
-                <strong> Unaweza kutumia chembe za rozari ya kawaida au Rozari ya Huruma ya Mungu</strong>
-            </p>
-            <p>✝
-                <strong>Baba Yetu Mara x1</strong>
-            </p>
-            <p>Baba yetu, uliye mbinguni Jina lako litukuzwe, ufalme wako ufike, 
-              utakalo lifanyike duniani kama mbinguni. Utupe leo mkate wetu wa kila siku, 
-              utusamehe makosa yetu, kama nasi tunavyowasamehe waliotukosea. Usitutie kishawishini bali utuopoe 
-              maovuni. Amina.</p>
-            <p>✝
-                <strong>Salamu Maria Mara (1)</strong>
-                Salam Maria, umejaa neema, Bwana yu nawe, 
-                umebarikiwa kuliko wanawake wote na Yesu mzao wa tumbo lako amebarikiwa. 
+            <p>✝ <strong>Unaweza kutumia chembe za rozari ya kawaida au Rozari ya Huruma ya Mungu.</strong></p>
+            <p>✝ <strong>Baba Yetu Mara x1</strong></p>
+            <p>Baba yetu, uliye mbinguni Jina lako litukuzwe, ufalme wako ufike,
+                utakalo lifanyike duniani kama mbinguni. Utupe leo mkate wetu wa kila siku,
+                utusamehe makosa yetu, kama nasi tunavyowasamehe waliotukosea. Usitutie kishawishini bali utuopoe
+                maovuni. Amina.</p>
+            <p>✝ <strong>Salamu Maria Mara (1)</strong><br>
+                Salam Maria, umejaa neema, Bwana yu nawe,
+                umebarikiwa kuliko wanawake wote na Yesu mzao wa tumbo lako amebarikiwa.
                 Maria mtakatifu mama wa Mungu, utuombee sisi wakosefu sasa na saa ya kufa kwetu. Amina.
             </p>
-            <p>✝
-              <strong>Nasadiki kwa Mungu, Baba Mwenyezi</strong>, mwumba mbingu na dunia. Na kwa Yesu Kristu, 
-              Mwanaye wa pekee, Bwana wetu; aliyetungwa kwa Roho Mtakatifu, akazaliwa na Bikira Maria, 
-              akateswa kwa mamlaka ya Ponsyo Pilato, akasulubiwa, akafa, akazikwa, akashukia kuzimu; 
-              siku ya tatu akafufuka katika wafu; akapaa mbinguni; amekaa kuume kwa Mungu Baba Mwenyezi; 
-              toka huko atakuja kuwahukumu wazima na wafu. Nasadiki kwa Roho Mtakatifu, 
-              Kanisa takatifu katoliki, ushirika wa Watakatifu, maondoleo ya dhambi, 
-              ufufuko wa miili, uzima wa milele. Amina.</p>
+            <p>✝ <strong>Nasadiki kwa Mungu, Baba Mwenyezi</strong>, mwumba mbingu na dunia. Na kwa Yesu Kristu,
+                Mwanaye wa pekee, Bwana wetu; aliyetungwa kwa Roho Mtakatifu, akazaliwa na Bikira Maria,
+                akateswa kwa mamlaka ya Ponsyo Pilato, akasulubiwa, akafa, akazikwa, akashukia kuzimu;
+                siku ya tatu akafufuka katika wafu; akapaa mbinguni; amekaa kuume kwa Mungu Baba Mwenyezi;
+                toka huko atakuja kuwahukumu wazima na wafu. Nasadiki kwa Roho Mtakatifu,
+                Kanisa takatifu katoliki, ushirika wa Watakatifu, maondoleo ya dhambi,
+                ufufuko wa miili, uzima wa milele. Amina.</p>
 
-            <p>✝ <strong> penye punje kubwa</strong> (Badala ya Baba yetu): Baba wa Milele, ninakutolea Mwili na Damu, 
-              Roho na Umungu, wa Mwanao Mpenzi sana, Bwana wetu Yesu Kristu, kwa ajili ya malipizi ya dhambi zetu, 
-              na dhambi za dunia nzima.</p>
-            <p> ✝ <strong> penye punje ndogo</strong> (badala ya Salamu Maria): Kwa ajili ya mateso makali ya Bwana wetu Yesu Kristu,
-               Utuhurumie sisi na dunia nzima.</p>
-            <p>✝ Mwisho wa Rozari sali mara tatu sala ifuatayo: Mungu Mtakatifu, Mtakatifu mwenye Enzi, Mtakatifu unayeishi milele, 
-              Utuhurumie sisi na dunia nzima.</p>
-          </div>
+            <p>✝ <strong>Pahali penye punje kubwa</strong> (Badala ya Baba yetu): Baba wa Milele, ninakutolea Mwili na Damu,
+                Roho na Umungu, wa Mwanao Mpenzi sana, Bwana wetu Yesu Kristu, kwa ajili ya malipizi ya dhambi zetu,
+                na dhambi za dunia nzima.</p>
+            <p> ✝ <strong>Pahali penye punje ndogo</strong> (badala ya Salamu Maria): Kwa ajili ya mateso makali ya Bwana wetu Yesu Kristu,
+                Utuhurumie sisi na dunia nzima.</p>
+            <p>✝ Mwisho wa Rozari sali mara tatu sala ifuatayo: Mungu Mtakatifu, Mtakatifu mwenye Enzi, Mtakatifu unayeishi milele,
+                Utuhurumie sisi na dunia nzima.</p>
+        </section>
+    </main>
 
-          
-          <div class="container-fluid themed-container text-center">
-            <div class="container">
-              <footer class="py-3 my-4">
-                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                  <li class="nav-item">
-                    <a href="/public.html" class="nav-link px-2 text-body-secondary">Home</a>
-                  </li>
-                  <li class="nav-item">
+    <footer class="py-3 my-4 border-top">
+        <div class="container">
+            <ul class="nav justify-content-center pb-3 mb-3">
+                <li class="nav-item">
+                    <a href="/public.html" class="nav-link px-2 text-body-secondary">Mwanzo</a>
+                </li>
+                <li class="nav-item">
                     <a href="/rms.html" class="nav-link px-2 text-body-secondary">Redemptoris Mater</a>
-                  </li>
-                  <li class="nav-item">
+                </li>
+                <li class="nav-item">
                     <a href="/rozari.html" class="nav-link px-2 text-body-secondary">Rozari</a>
-                  </li>
-                  <li class="nav-item">
+                </li>
+                <li class="nav-item">
                     <a href="/nyimbo.html" class="nav-link px-2 text-body-secondary">Amefufuka</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="/historia.html" class="nav-link px-2 text-body-secondary">About</a>
-                  </li>
-                </ul>
-                <p class="text-center text-body-secondary">&copy; iPray 2025, All rights reserved</p>
-              </footer>
-            </div>
-              </body>
-          </div>
-            <script src="node_modules/bootstrap/dist/js/bootstrap.js" ></script>
-            <script>
-                d = new Date();
-                document.getElementById("demo").innerHTML = d.toDateString();
-                </script>
+                </li>
+                <li class="nav-item">
+                    <a href="/historia.html" class="nav-link px-2 text-body-secondary">Kuhusu</a>
+                </li>
+            </ul>
+            <p class="text-center text-body-secondary">&copy; iPray 2025, Haki zote zimehifadhiwa.</p>
+        </div>
+    </footer>
+
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Display current date in Swahili
+        const dateElement = document.getElementById("current-date");
+        if (dateElement) {
+            const today = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            dateElement.textContent = today.toLocaleDateString('sw-TZ', options);
+        }
+    </script>
+</body>
 </html>

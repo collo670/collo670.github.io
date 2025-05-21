@@ -1,138 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            h1 {font-size: xx-large;
-                font: bolder;
-                font-family: 'times new roman';
-                /* #009688; #00bcd4; #1abc9c; #474e5d; #2f2f2f; */
-            }
-            h2{
-              font-size: xx-large;
-              background-position: center;
-            }
-            p {font-size: x-large;
-            font-family: 'times new roman';
-            }
-            body {
-                  background-color: whitesmoke; /* Fallback color */
-                  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.244), rgba(248, 245, 245, 0.719)), url('/assets/images/bikira maria.jpg');
-                  background-repeat: repeat-x;
-                  background-size: cover; /* Ensures the image covers the entire background */
-                  background-position: right top;
-                  background-attachment: fixed;
-            }
-            /* Moved inline styles to CSS */
-            .custom-body {
-                background-color: whitesmoke;
-                font-size: larger;
-            }
-
-            /* Moved inline styles to CSS */
-            .centered-div {
-                text-align: center;
-            }
-
-            .large-text {
-                font-size: x-large;
-            }
-
-            .welcome-heading {
-                text-align: center;
-            }
-
-            .button-link {
-                color: white;
-                text-decoration: none;
-            }
-
-            .button-link-secondary {
-                color: rgba(15, 39, 90, 0.989);
-                text-decoration: none;
-            }
-
-            /* Moved inline styles to CSS */
-            .papa-heading {
-                background-color: rgba(15, 39, 90, 0.989);
-                font-size: xx-large;
-                color: white;
-                text-align: center;
-            }
-
-            /* Moved inline styles to CSS */
-            .centered-content {
-                text-align: center;
-            }
-
-            .founders-text {
-                text-align: center;
-                font-family: 'Verdana';
-            }
-
-            .justified-text {
-                text-align: justify;
-            }
-
-            /* Moved inline styles to CSS */
-            .carmen-heading {
-                text-align: left;
-            }
-
-            .left-aligned-text {
-                text-align: left;
-            }
-
-            /* Moved inline styles to CSS */
-            .neokatekumenato-heading {
-                text-align: center;
-                color: rgba(15, 39, 90, 0.989);
-                font-weight: 900;
-            }
-
-            .kauli{
-              font-weight: bold;
-            }
-
-            .barua{
-              background-color: rgb(7, 100, 213);
-              color: white;
-              height: 50px;
-              border-radius: 10px;
-              outline:none ;
-              cursor: pointer;
-              border: none;
-              transition: opacity 0.15s;
-            }
-            .barua:hover{
-              opacity: 1 ;
-              background-color: black;
-            }
-            .whatsapp{
-              background-color: rgb(24, 228, 136);
-              color: white;
-              height: 50px;
-              border-radius: 10px;
-              outline:none ;
-              cursor: pointer;
-              border: none;
-
-            }
-            .nav-item{
-              font-weight: 500;
-              
-            }
-            .comment-section {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            background-color: #f9f9f9;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ipray - Neokatekumenato</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico.jpg">
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <style>
+        h1 {
+            font-size: xx-large;
+            font-weight: bolder;
+            font-family: 'Times New Roman', serif;
         }
-       
-        /*comment section*/
+        
+        h2 {
+            font-size: xx-large;
+            background-position: center;
+        }
+        
+        p {
+            font-size: x-large;
+            font-family: 'Times New Roman', serif;
+        }
+        
+        body {
+            background-color: whitesmoke;
+            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.244), rgba(248, 245, 245, 0.719)), url('/assets/images/bikira maria.jpg');
+            background-repeat: repeat-x;
+            background-size: cover;
+            background-position: right top;
+            background-attachment: fixed;
+            padding-top: 60px; /* Add padding for fixed navbar */
+        }
+        
+        .custom-body {
+            background-color: whitesmoke;
+            font-size: larger;
+        }
+        
+        .centered-div {
+            text-align: center;
+        }
+        
+        .large-text {
+            font-size: x-large;
+        }
+        
+        .welcome-heading {
+            text-align: center;
+        }
+        
+        .button-link {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .button-link-secondary {
+            color: rgba(15, 39, 90, 0.989);
+            text-decoration: none;
+        }
+        
+        .papa-heading {
+            background-color: rgba(15, 39, 90, 0.989);
+            font-size: xx-large;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .centered-content {
+            text-align: center;
+        }
+        
+        .founders-text {
+            text-align: center;
+            font-family: Verdana, sans-serif;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        
+        .justified-text {
+            text-align: justify;
+        }
+        
+        .carmen-heading {
+            text-align: left;
+        }
+        
+        .left-aligned-text {
+            text-align: left;
+        }
+        
+        .neokatekumenato-heading {
+            text-align: center;
+            color: rgba(15, 39, 90, 0.989);
+            font-weight: 900;
+        }
+        
+        .kauli {
+            font-weight: bold;
+            font-style: italic;
+            margin: 20px 0;
+        }
+        
+        .barua {
+            background-color: rgb(7, 100, 213);
+            color: white;
+            height: 50px;
+            border-radius: 10px;
+            outline: none;
+            cursor: pointer;
+            border: none;
+            transition: opacity 0.15s;
+            padding: 0 20px;
+            margin: 10px 5px;
+        }
+        
+        .barua:hover {
+            opacity: 1;
+            background-color: black;
+        }
+        
+        .whatsapp {
+            background-color: rgb(24, 228, 136);
+            color: white;
+            height: 50px;
+            border-radius: 10px;
+            outline: none;
+            cursor: pointer;
+            border: none;
+            padding: 0 20px;
+            margin: 10px 5px;
+        }
+        
+        .nav-item {
+            font-weight: 500;
+        }
+        
         .comment-section {
             max-width: 600px;
             margin: 20px auto;
@@ -141,33 +146,33 @@
             border-radius: 8px;
             background-color: #f9f9f9;
         }
-
+        
         .comment {
             margin-bottom: 15px;
             padding-bottom: 10px;
             border-bottom: 1px solid #eee;
         }
-
+        
         .comment-author {
             font-weight: bold;
             margin-right: 5px;
         }
-
+        
         .comment-date {
             font-size: 0.8em;
             color: #888;
         }
-
+        
         .comment-input-area {
             width: 100%;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;
             margin-bottom: 10px;
-            resize: none; /* Prevent vertical resizing by default */
-            box-sizing: border-box;  /* Include padding and border in element's total width and height */
+            resize: none;
+            box-sizing: border-box;
         }
-
+        
         .comment-button {
             padding: 10px 20px;
             background-color: #007bff;
@@ -177,278 +182,372 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-
+        
         .comment-button:hover {
             background-color: #0056b3;
         }
-
+        
         .comment-input-container {
             display: flex;
             flex-direction: column;
             margin-bottom: 10px;
         }
+        
         .error-message {
             color: red;
             margin-top: 5px;
         }
-        </style>
-             <title> ipray</title>
-        <link rel="icon" type="image/x-icon"
-        href="/assets/images/favicon.ico.jpg">
-
-        <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
         
-    </head>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .img-container {
+            margin: 20px 0;
+        }
+        
+        .img-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            h1, h2 {
+                font-size: x-large;
+            }
+            
+            p {
+                font-size: large;
+            }
+            
+            .papa-heading {
+                font-size: large;
+                padding: 10px;
+            }
+            
+            .img-container img {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+        }
+                    /* Existing styles for .comment-section are good */
+            .comment-section {
+                max-width: 600px;
+                margin: 20px auto;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                background-color: #f9f9f9;
+            }
 
-    <body class="custom-body">
+            .comment {
+                margin-bottom: 15px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #eee;
+            }
 
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-          <div class="container-fluid">
-            <img src="/assets/images/bikira maria.jpg" alt="Bootstrap" width="40" height="40">
+            .comment-author {
+                font-weight: bold;
+                margin-right: 5px;
+                color: #007bff; /* Added a color for emphasis */
+            }
+
+            .comment-date {
+                font-size: 0.8em;
+                color: #888;
+            }
+
+            /* Existing styles for inputs and buttons are good */
+            .comment-input-area {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                margin-bottom: 10px; /* Adjusted margin for better spacing */
+                resize: vertical; /* Allow vertical resizing only */
+                box-sizing: border-box;
+            }
+
+            .error-message {
+                color: red;
+                font-size: 0.9em;
+                margin-top: -5px; /* Adjust spacing */
+                display: block; /* Ensure it takes its own line */
+                margin-bottom: 10px; /* Add space below error message */
+            }
+    </style>
+</head>
+
+<body class="custom-body">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <img src="/assets/images/bikira maria.jpg" alt="Bootstrap" width="40" height="40"  class="rounded-circle me-2">
             <a class="navbar-brand" href="/public.html">ipray</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-              <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/lauds.html">Masifu ya Asubuhi</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/rms.html">Redemptoris Mater</a>
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/historia.html">Kuhusu Neo</a>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/rozari.html">Rozari</a>
-                </li>
-              </ul>
-              <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/lauds.html">Masifu ya Asubuhi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/rms.html">Redemptoris Mater</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/historia.html">Kuhusu Neo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/rozari.html">Rozari</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
             </div>
-          </div>
-        </nav>
-          <hr>
-            <br>
-        <div class="container-fluid themed-container text-center">
-          <h2 class="neokatekumenato-heading display-3"><strong>NEOKATEKUMENATO</strong></h2>
-          <h1 class="welcome-heading display-5 fw-bold text-body-emphasis lh-1 mb-3">Karibu katika ukurasa wa Njia ya Neokatekumenato (Kenya - Tanzania)</h1>
-          <img src="/assets/images/bikira maria.jpg" class="img-fluid" alt="bikira maria" width="400" height="400">
-          <br>
         </div>
-    <div class="container-md themed-container text-center centered-div">
-          <p class="large-text" id="saa"></p>
-            
-            <p class="kauli">“Inabidi kufanya jumuiya za 
-              Kikristo kama Familia Takatifu ya Nazareti, zinazoishi kwa unyenyekevu, urahisi na sifa. 
-              Mwingine ni Kristo."</p>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-              <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" onclick="location.href='/historia.html';">
-                Historia ya Neokatekumenato
-              </button>
-              <button style="color: white;" type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="location.href='/rms.html';">
-                Seminari
-              </button>
-            </div>
-          </div>
-          <br>
-          <div class="container-sm themed-container text-center">
-            <h2 class="papa-heading">PAPA PAULO VI KWA JUMUIYA ZA NEOKATEKUMENATO</h2>
-            <div class="container-xl themed-container text-center text-sm-start">    
-              <p class="left-aligned-text">"...Kikundi kingine hiki ni kikundi cha mapadre na walei wanaowakilisha mwendo, njia - tazameni mambo ya baada ya mtaguso
-              - ya jumuiya ya neokatemumenato. Jinsi tunavyopata furaha na tumaini kwa kuwepo kwenu na matendo yenu.
-          </p>
-              <p class="justified-text"> Nia yenu, iliyo kwenu dhahiri na halisi wa kuishi wito wa kikiristo, yatafsiriwa pia katika ushahidi wa maana kwa wengine;
-              hasa, kwa kua mko kwa yale ambao mko, katika jitihada kwa uvumbuzi upya wa kupata tena thamani halisiza kikiristo
-              , za kweli, amabazo zingeweza vinginevyo kubaki zikifichwa, au zikilala, au uangavu kwa kiadili maalum,
-              kwa sababu, kwa roho hii ya kristo, ninyi mwaishi jumuiya hii ya neokatekumenato.
-          </p>
-          </div>
-          <hr>
+    </nav>
+    
+    <div class="container-fluid themed-container text-center mt-5">
+        <h2 class="neokatekumenato-heading display-3"><strong>NEOKATEKUMENATO</strong></h2>
+        <h1 class="welcome-heading display-5 fw-bold text-body-emphasis lh-1 mb-3">Karibu katika ukurasa wa Njia ya Neokatekumenato (Kenya - Tanzania)</h1>
+        <div class="img-container">
+            <img src="/assets/images/bikira maria.jpg" class="img-fluid" alt="bikira maria" width="400" height="400">
+        </div>
     </div>
-          <div class="container-md themed-container text-center">
-            <div class="centered-content">
-              <img src="/assets/images/kiko.jpg" class="text-start img-fluid" alt="kiko" width="300" height="300">
-              <img src="/assets/images/Camino_Neocatecumenal_Carmen_Hernandez-OG.jpg" class="text-center img-fluid" alt="ascension" width="300" height="300">
-              <img src="/assets/images/mario.jpg" class="text-center img-fluid" alt="mario" width="300" height="300">
-              <br>
-              <p class="founders-text">WAANZILISHI WA NJIA YA NEOKATEKUMENATO</p>
-              <hr>
+    
+    <div class="container-md themed-container text-center centered-div">
+        <p class="large-text" id="saa"></p>
+        <p class="kauli">"Inabidi kufanya jumuiya za Kikristo kama Familia Takatifu ya Nazareti, zinazoishi kwa unyenyekevu, urahisi na sifa. Mwingine ni Kristo."</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" onclick="location.href='/historia.html';">Historia ya Neokatekumenato</button>
+            <button style="color: white;" type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="location.href='/rms.html';">Seminari</button>
+        </div>
+    </div>
+    
+    <br>
+    
+    <div class="container-sm themed-container text-center">
+        <h2 class="papa-heading">PAPA PAULO VI KWA JUMUIYA ZA NEOKATEKUMENATO</h2>
+        <div class="container-xl themed-container text-center text-sm-start">    
+            <p class="left-aligned-text">"...Kikundi kingine hiki ni kikundi cha mapadre na walei wanaowakilisha mwendo, njia - tazameni mambo ya baada ya mtaguso - ya jumuiya ya neokatemumenato. Jinsi tunavyopata furaha na tumaini kwa kuwepo kwenu na matendo yenu.</p>
+            <p class="justified-text">Nia yenu, iliyo kwenu dhahiri na halisi wa kuishi wito wa kikiristo, yatafsiriwa pia katika ushahidi wa maana kwa wengine; hasa, kwa kua mko kwa yale ambao mko, katika jitihada kwa uvumbuzi upya wa kupata tena thamani halisiza kikiristo, za kweli, amabazo zingeweza vinginevyo kubaki zikifichwa, au zikilala, au uangavu kwa kiadili maalum, kwa sababu, kwa roho hii ya kristo, ninyi mwaishi jumuiya hii ya neokatekumenato.</p>
+        </div>
+        <hr>
+    </div>
+    
+    <div class="container-md themed-container text-center">
+        <div class="centered-content">
+            <div class="row img-container">
+                <div class="col-md-4">
+                    <img src="/assets/images/kiko.jpg" class="img-fluid" alt="kiko" width="300" height="300">
+                </div>
+                <div class="col-md-4">
+                    <img src="/assets/images/Camino_Neocatecumenal_Carmen_Hernandez-OG.jpg" class="img-fluid" alt="ascension" width="300" height="300">
+                </div>
+                <div class="col-md-4">
+                    <img src="/assets/images/mario.jpg" class="img-fluid" alt="mario" width="300" height="300">
+                </div>
             </div>
-          </div>
-          <div class="container-lg themed-container text-center">
-            <h2 class="papa-heading">PAPA PAULO II KWA JUMUIYA ZA NEOKATEKUMENATO</h2>
-            <div class="container-xl themed-container text-center">
-              <p>(wakati wa matembezi kwa parokia ya Mama yetu wa Sakramenti Takatifu na mashahidi wa Kanada, tar. 2 Nov. 1980)</p>
-              <p class="justified-text">
+            <p class="founders-text">WAANZILISHI WA NJIA YA NEOKATEKUMENATO</p>
+            <hr>
+        </div>
+    </div>
+    
+    <div class="container-lg themed-container text-center">
+        <h2 class="papa-heading">PAPA PAULO II KWA JUMUIYA ZA NEOKATEKUMENATO</h2>
+        <div class="container-xl themed-container text-center">
+            <p>(wakati wa matembezi kwa parokia ya Mama yetu wa Sakramenti Takatifu na mashahidi wa Kanada, tar. 2 Nov. 1980)</p>
+            <p class="justified-text">
                 "Sisi, wapendwa sana, twaishi katika muhula ambao mtu aonja, afanya maang'amuzi ya pambano la msingi - nasema 
                 hayo, kwa sababu ndiyo maang'amuzi yangu ya miaka mingi - ya pambano la msingi linaloenea kote. Halipo tu Toleo
                 moja, yapo mengi ulimwenguni: imani na kupinga-imani, injili na kupinga-injili, kanisa na kupinga-kanisa, Mungu na mpinga-Mungu,
                 tukiweza kusema hivi. Hayupo mpinga-Mungu, hawezi kuwepo, lakini aweza kuwepo katika mtu, yawezekana kuundwa katika mtu ukana halisi wa Mungu.
                 Tazama, sisi twaishi maang'amuzi haya ya kihistoria na zaidi kuliko kwenye muhula wa mbele. Kwenye nyakati zetu
                 twahitaji kuvumbua upya imani ya kimsingi, mtu akiishi imani hii kwa njia halisi kabisa. Twahitaji imani ya namna hii.
-              </p>
-            </div>
-          </div>
-<div class="container-fluid themed-container text-center">
-  <img src="/assets/images/njia-ya-yneokatekumenato-inabidi-kufanya-jumuiya-za-kikristo.png"  class="img-fluid" alt="carmen" width="400" height="400">
-  <br>
-  </div>
-<hr>
-</div>
-          <div class="container-xl themed-container text-center">
-            <section>
-              <div class="container col-xxl-8 px-4 ">
-                  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-                    <div class="col-10 col-sm-8 col-lg-6">
-                      <img src="/assets/images/Camino_Neocatecumenal_Carmen_Hernandez-OG.jpg" class="d-block mx-lg-auto img-fluid" alt="photo of carmen hernandez" width="500" height="600" loading="lazy">
-                    </div>
-                    <div class="col-lg-6">
-                      <h1 class="carmen-heading display-5 fw-bold text-body-emphasis lh-1 mb-3">
-                        Kuomba Neema na Upendeleo Kwa Maombezi ya Carmen Hernández
-                      </h1>
-                      <p class="left-aligned-text">Ee Mungu,
-                        kwamba kwa kumchagua mtumishi wa Mungu Carmen Hernández
-                        kama mwanzilishi mwenza wa Njia ya Neokatekumenato,
-                        ulimpa upendo mkuu kwa Yesu Kristo na Kanisa,
-                        kwa Maandiko Matakatifu na kwa maombi ya kiliturujia,
-                        ari kubwa kwa ajili ya tangazo la msafiri wa Injili
-                        na uaminifu katika majaribu ya msalaba;
-                        nijalie kwa maombezi yake,
-                        na ikiwa ni mapenzi yako, nijalie pia neema ninayokuomba (taja neema unayoiomba).
-                        Kwa njia ya Yesu Kristo, Bwana wetu. Amina.
-                      </p>
-                      <p class="left-aligned-text">Baba yetu. Salamu Maria. Atukuzwe Baba...</p>
-                      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" onclick="location.href='/Carmen Hernandez.html';">
-                          Carmen
-                        </button>
-                        <button style="color: white;" type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="location.href='/rozari.html';">
-                          Rozari
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-          </section>
+            </p>
         </div>
-      </section>
+    </div>
+    
+    <div class="container-fluid themed-container text-center">
+        <div class="img-container">
+            <img src="/assets/images/njia-ya-yneokatekumenato-inabidi-kufanya-jumuiya-za-kikristo.png" class="img-fluid" alt="carmen" width="400" height="400">
         </div>
         <hr>
-
-          <div class="container-xxl themed-container text-center">
-            <div class="container col-xl-10 col-xxl-8 px-4 py-5">
-              <div class="row align-items-center g-lg-5 py-5">
-                <div class="col-lg-7 text-center text-lg-start">
-                  <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Wasiliana Nasi</h1>
-                  <p class="col-lg-10 fs-4"> Unaweza kutuandikia kwa kutumia barua pepe hapo chini au kupitia Whatsapp yetu. Tuanfurahi daima kusikia kutoka kwako .</p>
-                  </div>
-
-
-              <div class="col-md-10 mx-auto col-lg-5">
-                  <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
-                      <h2>Comments</h2>
-                      <textarea id="comment-input" class="comment-input-area" placeholder="Write a comment..." rows="4"></textarea>
-                        <span id="comment-error" class="error-message"></span>
-                <div class="form-floating mb-3">
-                      <input type="text" class="form-control" id="floatingInput" placeholder="name">
-                      <label for="floatingInput">First Name</label>
+    </div>
+    
+    <div class="container-xl themed-container text-center">
+        <section>
+            <div class="container col-xxl-8 px-4">
+                <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                    <div class="col-10 col-sm-8 col-lg-6">
+                        <div class="img-container">
+                            <img src="/assets/images/Camino_Neocatecumenal_Carmen_Hernandez-OG.jpg" class="d-block mx-lg-auto img-fluid" alt="photo of carmen hernandez" loading="lazy">
+                        </div>
                     </div>
-                <div class="form-floating mb-3">
-                      <input type="text" class="form-control" id="floatingpassword" placeholder="name">
-                      <label for="floatingInput">Last Name</label>
+                    <div class="col-lg-6">
+                        <h1 class="carmen-heading display-5 fw-bold text-body-emphasis lh-1 mb-3">
+                            Kuomba Neema na Upendeleo Kwa Maombezi ya Carmen Hernández
+                        </h1>
+                        <p class="left-aligned-text">Ee Mungu,
+                            kwamba kwa kumchagua mtumishi wa Mungu Carmen Hernández
+                            kama mwanzilishi mwenza wa Njia ya Neokatekumenato,
+                            ulimpa upendo mkuu kwa Yesu Kristo na Kanisa,
+                            kwa Maandiko Matakatifu na kwa maombi ya kiliturujia,
+                            ari kubwa kwa ajili ya tangazo la msafiri wa Injili
+                            na uaminifu katika majaribu ya msalaba;
+                            nijalie kwa maombezi yake,
+                            na ikiwa ni mapenzi yako, nijalie pia neema ninayokuomba (taja neema unayoiomba).
+                            Kwa njia ya Yesu Kristo, Bwana wetu. Amina.
+                        </p>
+                        <p class="left-aligned-text">Baba yetu. Salamu Maria. Atukuzwe Baba...</p>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                            <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" onclick="location.href='/Carmen Hernandez.html';">Carmen</button>
+                            <button style="color: white;" type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="location.href='/rozari.html';">Rozari</button>
+                        </div>
                     </div>
-                    <div class="form-floating mb-3">
-                      <input type="email" class="form-control" id="floatingPassword" placeholder="email">
-                      <label for="floatingInput">Email</label>
-                    </div>
-                    <div class="checkbox mb-3">
-                      <label>
-                        <input type="checkbox" value="remember-me"> Remember me
-                      </label>
-                    </div>
-                    <button class="w-100 btn btn-lg btn-primary" type="submit">submit</button>
-                  </form>
                 </div>
-              </div>
-               <!--feedback email-->
-               <button class="barua" onclick="openGmailComposeWithDetails()">Tuma barua pepe</button>
-
-                  <button class="whatsapp" onclick="openWhatsApp()"> WhatsApp</button>
             </div>
-          </div>
+        </section>
+    </div>
+    
+    <hr>
+    
+    <div class="container-xxl themed-container text-center">
+        <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+            <div class="row align-items-center g-lg-5 py-5">
+                <div class="col-lg-7 text-center text-lg-start">
+                    <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Wasiliana Nasi</h1>
+                    <p class="col-lg-10 fs-4">Unaweza kutuandikia kwa kutumia barua pepe hapo chini au kupitia
+                        Whatsapp yetu. Tuanfurahi daima kusikia kutoka kwako.</p>
+                </div>
 
-          <div class="container-fluid themed-container text-center">
-            <div class="container">
-              <footer class="py-3 my-4">
+                <div class="col-md-10 mx-auto col-lg-5">
+                    <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" id="comment-form">
+                        <h2>Leave a Comment</h2>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="firstNameInput" placeholder="First Name"
+                                required>
+                            <label for="firstNameInput">First Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="lastNameInput" placeholder="Last Name"
+                                required>
+                            <label for="lastNameInput">Last Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="emailInput" placeholder="name@example.com">
+                            <label for="emailInput">Email address (optional)</label>
+                        </div>
+                        <div class="comment-input-container mb-3">
+                            <textarea id="comment-input" class="comment-input-area"
+                                placeholder="Write your comment here..." rows="4" required></textarea>
+                            <span id="comment-error" class="error-message"></span>
+                        </div>
+                        <button class="w-100 btn btn-lg btn-primary" type="submit">Submit Comment</button>
+                    </form>
+
+                    <div class="comment-section mt-4">
+                        <h3>Comments</h3>
+                        <div id="comments-container">
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button class="barua" onclick="openGmailComposeWithDetails()">Tuma barua pepe</button>
+                <button class="whatsapp" onclick="openWhatsApp()">WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid themed-container text-center">
+        <div class="container">
+            <footer class="py-3 my-4">
                 <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                  <li class="nav-item">
-                    <a href="/public.html" class="nav-link px-2 text-body-secondary">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="/rms.html" class="nav-link px-2 text-body-secondary">Redemptoris Mater</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="/rozari.html" class="nav-link px-2 text-body-secondary">Rozari</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="/nyimbo.html" class="nav-link px-2 text-body-secondary">Amefufuka</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="/historia.html" class="nav-link px-2 text-body-secondary">About</a>
-                  </li>
+                    <li class="nav-item">
+                        <a href="/public.html" class="nav-link px-2 text-body-secondary">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/rms.html" class="nav-link px-2 text-body-secondary">Redemptoris Mater</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/rozari.html" class="nav-link px-2 text-body-secondary">Rozari</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/nyimbo.html" class="nav-link px-2 text-body-secondary">Amefufuka</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/historia.html" class="nav-link px-2 text-body-secondary">About</a>
+                    </li>
                 </ul>
                 <p class="text-center text-body-secondary">&copy; ipray 2025, All rights reserved</p>
-              </footer>
-            </div>
-          </div>
-    </body>
+            </footer>
+        </div>
+    </div>
 
-<script src="node_modules/bootstrap/dist/js/bootstrap.js" ></script>
-<script>
-
-    d = new Date();
-    document.getElementById("demo").innerHTML = d.toDateString();
-    </script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script>
-      var greeting;
-      var time = new Date().getHours();
-    if (time < 12) {greeting = "GOOD MORNING";
-    } 
-    else if (time <16) {greeting = "GOOD AFTERNOON";
-    } 
-    else {greeting = "GOOD EVENING";
-    }
-document.getElementById("saa").innerHTML = greeting
+        // Date and time greeting
+        var greeting;
+        var time = new Date().getHours();
+        if (time < 12) {
+            greeting = "GOOD MORNING";
+        }
+        else if (time < 16) {
+            greeting = "GOOD AFTERNOON";
+        }
+        else {
+            greeting = "GOOD EVENING";
+        }
+        document.getElementById("saa").innerHTML = greeting;
 
-function openGmailComposeWithDetails() {
-    const recipient = "otienocollo95@gmail.com";
-    const subject = "Feedback";
-    const body = "";
-    window.location.href = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${encodeURIComponent(recipient)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  }
+        // Display current date
+        d = new Date();
+        // This element (demo) is not present in your HTML, consider adding it if you want to display the date.
+        // document.getElementById("demo").innerHTML = d.toDateString();
 
-  function openWhatsApp() {
-  // Replace with a valid phone number.  Include the country code!
-  const phoneNumber = "+255742101013";
+        // Email and WhatsApp functions
+        function openGmailComposeWithDetails() {
+            const recipient = "otienocollo95@gmail.com";
+            const subject = "Feedback";
+            const body = "";
+            window.location.href = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&1&to=${encodeURIComponent(recipient)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
 
-  // Optional:  Add a message.
-  const message = "Hello! I'd like to chat.";
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        function openWhatsApp() {
+            // Replace with a valid phone number. Include the country code!
+            const phoneNumber = "+255742101013";
 
-  window.open(whatsappUrl, '_blank');
-}
+            // Optional: Add a message.
+            const message = "Hello! I'd like to chat.";
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
-const commentsContainer = document.getElementById('comments-container');
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Comment system
+        const commentForm = document.getElementById('comment-form');
+        const commentsContainer = document.getElementById('comments-container');
         const commentInput = document.getElementById('comment-input');
-        const submitCommentButton = document.getElementById('submit-comment');
+        const firstNameInput = document.getElementById('firstNameInput');
+        const lastNameInput = document.getElementById('lastNameInput');
+        const emailInput = document.getElementById('emailInput');
         const commentError = document.getElementById('comment-error');
 
-        let comments = [
+        // Load comments from Local Storage or use a default if none exist
+        let comments = JSON.parse(localStorage.getItem('comments')) || [
             { author: "John Doe", date: "2024-07-24", text: "This is a great post!" },
             { author: "Jane Smith", date: "2024-07-24", text: "I agree!" },
         ];
+
+        function saveComments() {
+            localStorage.setItem('comments', JSON.stringify(comments));
+        }
 
         function displayComments() {
             commentsContainer.innerHTML = '';
@@ -456,35 +555,51 @@ const commentsContainer = document.getElementById('comments-container');
                 const commentDiv = document.createElement('div');
                 commentDiv.classList.add('comment');
                 commentDiv.innerHTML = `
-                    <span class="comment-author">${comment.author}</span>
-                    <span class="comment-date">${comment.date}</span>
+                    <p class="mb-1"><span class="comment-author">${comment.author}</span> <span class="comment-date">${comment.date}</span></p>
                     <p>${comment.text}</p>
                 `;
-                commentsContainer.appendChild(commentDiv);
+                commentsContainer.prepend(commentDiv); // Add new comments to the top
             });
         }
 
-        function addComment() {
+        function handleCommentSubmit(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const firstName = firstNameInput.value.trim();
+            const lastName = lastNameInput.value.trim();
             const commentText = commentInput.value.trim();
-            if (commentText === "") {
-                commentError.textContent = "Please enter a comment before submitting.";
+            const email = emailInput.value.trim(); // Email is optional
+
+            if (!firstName || !lastName || !commentText) {
+                commentError.textContent = "Please fill in your first name, last name, and comment.";
                 return;
             }
+
             commentError.textContent = ""; // Clear any previous error message.
 
+            const authorName = `${firstName} ${lastName}`;
             const newComment = {
-                author: "Current User", //  In a real app, get the actual user's name.
+                author: authorName,
                 date: new Date().toISOString().split('T')[0], // Get YYYY-MM-DD
-                text: commentText
+                text: commentText,
+                email: email // Store email, even if empty
             };
+
             comments.push(newComment);
-            displayComments();
-            commentInput.value = ''; // Clear the input after submitting
+            saveComments(); // Save updated comments to Local Storage
+            displayComments(); // Re-render comments
+
+            // Clear the form fields after submission
+            firstNameInput.value = '';
+            lastNameInput.value = '';
+            emailInput.value = '';
+            commentInput.value = '';
         }
 
-        submitCommentButton.addEventListener('click', addComment);
+        // Add event listener for the form submission
+        commentForm.addEventListener('submit', handleCommentSubmit);
 
-        displayComments(); // Initial display of comments
-
+        // Initial display of comments when the page loads
+        displayComments();
     </script>
- </html>
+</body>
