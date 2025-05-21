@@ -6,6 +6,7 @@
     <title>ipray - Neokatekumenato</title>
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico.jpg">
     <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         h1 {
             font-size: xx-large;
@@ -277,6 +278,19 @@
                 display: block; /* Ensure it takes its own line */
                 margin-bottom: 10px; /* Add space below error message */
             }
+
+            .social-icons a {
+                 margin: 0 10px;
+                font-size: 80px;
+                color: #333;
+                text-decoration: none;
+                transition: color 0.3s ease;
+                padding: 1.5rem 0.5rem;
+             }
+
+            .social-icons a:hover {
+            color: #0077ff;
+             }
     </style>
 </head>
 
@@ -461,10 +475,18 @@
             <div class="text-center mt-4">
                 <button class="barua" onclick="openGmailComposeWithDetails()">Tuma barua pepe</button>
                 <button class="whatsapp" onclick="openWhatsApp()">WhatsApp</button>
+            <br>
+            <p class="founders-text">Follow us on social media</p>
+
+        <div class="social-icons">
+             <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
             </div>
         </div>
     </div>
-
     <div class="container-fluid themed-container text-center">
         <div class="container">
             <footer class="py-3 my-4">
