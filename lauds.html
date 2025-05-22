@@ -186,6 +186,7 @@
     let currentPdf = null;
     let currentPage = 1;
     let totalPages = 0;
+    let currentPdfUrl = ""; // Track current PDF URL
     const scale = 3.0;
 
     const searchMap = {
@@ -199,41 +200,67 @@
       "mwaka 3": "pdfs/MwakaSehemu3.pdf"
     };
 
-   async function renderPage(pageNum, direction = "none") {
-  if (!currentPdf) return;
+    // Function to get saved page for a PDF
+    function getSavedPage(pdfUrl) {
+      const savedPages = JSON.parse(localStorage.getItem('pdfPages') || '{}');
+      return savedPages[pdfUrl] || 1; // Default to page 1 if not found
+    }
 
-  const page = await currentPdf.getPage(pageNum);
-  const viewport = page.getViewport({ scale });
+    // Function to save current page for current PDF
+    function saveCurrentPage() {
+      if (!currentPdf || !currentPdfUrl) return;
+      
+      const savedPages = JSON.parse(localStorage.getItem('pdfPages') || '{}');
+      savedPages[currentPdfUrl] = currentPage;
+      localStorage.setItem('pdfPages', JSON.stringify(savedPages));
+    }
 
-  canvas.width = viewport.width;
-  canvas.height = viewport.height;
+    async function renderPage(pageNum, direction = "none") {
+      if (!currentPdf) return;
 
-  // CSS size to visually fit without zooming the whole page
-  canvas.style.width = `${viewport.width / scale}px`;
-  canvas.style.height = `${viewport.height / scale}px`;
+      const page = await currentPdf.getPage(pageNum);
+      const viewport = page.getViewport({ scale });
 
-  // Optional animation
-  canvas.style.transform = direction === "left" ? "translateX(100%)"
-    : direction === "right" ? "translateX(-100%)"
-    : "translateX(0)";
-  canvas.style.opacity = "0";
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
 
-  setTimeout(async () => {
-    await page.render({ canvasContext: ctx, viewport }).promise;
-    canvas.style.transform = "translateX(0)";
-    canvas.style.opacity = "1";
-    pageInfo.textContent = `Ukurasa ${currentPage} ya ${totalPages}`;
-  }, 150);
-}
+      // CSS size to visually fit without zooming the whole page
+      canvas.style.width = `${viewport.width / scale}px`;
+      canvas.style.height = `${viewport.height / scale}px`;
 
+      // Optional animation
+      canvas.style.transform = direction === "left" ? "translateX(100%)"
+        : direction === "right" ? "translateX(-100%)"
+        : "translateX(0)";
+      canvas.style.opacity = "0";
+
+      setTimeout(async () => {
+        await page.render({ canvasContext: ctx, viewport }).promise;
+        canvas.style.transform = "translateX(0)";
+        canvas.style.opacity = "1";
+        pageInfo.textContent = `Ukurasa ${currentPage} ya ${totalPages}`;
+        
+        // Save the current page whenever it changes
+        saveCurrentPage();
+      }, 150);
+    }
 
     async function loadPDF(url) {
       try {
+        // Save current page before loading new PDF
+        if (currentPdf && currentPdfUrl) {
+          saveCurrentPage();
+        }
+
         const loadingTask = pdfjsLib.getDocument(url);
         const pdf = await loadingTask.promise;
         currentPdf = pdf;
+        currentPdfUrl = url; // Store current PDF URL
         totalPages = pdf.numPages;
-        currentPage = 1;
+        
+        // Get saved page or default to 1
+        currentPage = getSavedPage(url);
+        
         renderPage(currentPage);
       } catch (err) {
         alert("PDF haikuweza kupakiwa: " + url);

@@ -6,9 +6,10 @@
         <style>
             h1, h2 {
                 text-align: center;
+                color: rgba(15, 39, 90, 0.989);
             }
 
-            h2.display-3 {
+            h2.display-2 {
                 color: rgba(15, 39, 90, 0.989);
             }
 
@@ -64,6 +65,7 @@
                 background-color: rgba(15, 39, 90, 0.989);
                 color: white;
                 font-size: xx-large;
+                border-radius: 10px;
             }
 
             .song-list {
@@ -79,6 +81,7 @@
                 color: white;
                 font-size: xx-large;
                 text-align: center;
+                border-radius: 10px;
             }
 
             .introduction-heading {
@@ -89,6 +92,8 @@
             .amefufuka-heading {
                 text-align: center;
                 color: rgba(15, 39, 90, 0.989);
+                display: block;
+                
             }
 
             .download-link {
@@ -108,9 +113,17 @@
 
                         /* Default button styles */
             button {
+              background-color:rgba(15, 39, 90, 0.989);
               padding: 10px 15px;
               font-size: 16px;
               margin: 4px;
+              border-radius: 25px;
+              box-shadow: none;
+              color: white;
+              border: none;
+              cursor: pointer;
+              transition: background-color 0.3s ease;
+              
             }
 
             /* Smaller buttons on phones */
@@ -120,13 +133,19 @@
                 font-size: 12px;
               }
             }
+            .pdf-controls {
+                text-align: center;
+                margin: 20px 0;
+                border-radius: 15px;
+                box-shadow: none;
+            }
 
 
         </style>
         <title>Amefufuka</title>
         <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico.jpg">
         <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/css/pdf-viewer.css">
+      
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
     </head>
     <body class="custom-body">
@@ -163,7 +182,7 @@
         <hr>
         <br>
         <div class="container-fluid themed-container text-center">
-          <h2 class="display-3"><strong> AMEFUFUKA </strong></h2>
+          <h2 class="display-2"><strong> AMEFUFUKA </strong></h2>
           <img src="/assets/images/familia takatifu.jpg" class="img-fluid" alt="Bootstrap Themes" width="350" height="350">
           <br>
           <div class="container-md themed-container text-center">
@@ -250,18 +269,21 @@
           </div>
 
           <div class="container-xxl themed-container text-center">
-            <h2 class="amefufuka-heading">AMEFUFUKA</h2>
-      
-            
+            <h1 class="amefufuka-heading">AMEFUFUKA</h1>
+            <br>
              <div class="pdf-controls">
         <button id="prev-page">Previous</button>
         <button id="next-page">Next</button>
-        <button id="zoom-out">-</button>
-        <span id="zoom-level">100%</span>
-        <button id="zoom-in">+</button>
-        <span>Page: <span id="page-num">1</span> / <span id="page-count">?</span></span>
     </div>
+
     
+       
+        <span>Page: <span id="page-num">1</span> / <span id="page-count">?</span></span>
+        
+        <input type="number" id="page-search-input" min="1" placeholder="Go to page">
+        <button id="go-to-page-btn">Go</button>
+        <div id="search-message" style="color: red; margin-top: 5px;"></div>
+        </div>
       <br>
     <canvas id="pdf-canvas"></canvas>
 
@@ -300,132 +322,212 @@
           </div>
           
   <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
-    <script>
-    const url = '/assets/documents/amefufuka/00Amefufuka_ALL.pdf';
+   <script>
+    // Initialize PDF.js
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-    const canvas = document.getElementById('pdf-canvas');
-    const ctx = canvas.getContext('2d');
+const url = '/assets/documents/amefufuka/00Amefufuka_ALL.pdf';
+const canvas = document.getElementById('pdf-canvas');
+const ctx = canvas.getContext('2d');
+const pageNumSpan = document.getElementById('page-num'); // Updated to span
+const pageCountSpan = document.getElementById('page-count'); // Updated to span
+const pageSearchInput = document.getElementById('page-search-input'); // New element
+const goToPageBtn = document.getElementById('go-to-page-btn'); // New element
+const searchMessageDiv = document.getElementById('search-message'); // New element for messages
 
-    let pdfDoc = null;
-    let pageNum = 1;
-    let scale = 3.0;
-    const maxScale = 3.0;
-    const minScale = 0.5;
+let pdfDoc = null;
+let pageNum = 1;
+let totalPages = 0;
+let currentPdfUrl = url;
+let baseScale = 1.0; // 100% scale for desktop by default
+const maxScale = 5.0; // Not currently used, but good to keep if zoom is added
+const minScale = 0.8; // Not currently used, but good to keep if zoom is added
 
-    // Adjust scale based on window width (only on first load)
-    const initialScale = () => {
-        const screenWidth = window.innerWidth;
-        if (screenWidth >= 1200) {
-            return 1.5;
-        } else if (screenWidth >= 768) {
-            return 1.2;
-        } else {
-            return 1.0;
-        }
-    };
+// Responsive scaling function
+function calculateScale() {
+    const screenWidth = window.innerWidth;
+    if (screenWidth <= 768) { // Mobile devices
+        return 1.0; // Base scale for mobile
+    } else { // Desktop
+        return 1.0; // 100% scale for desktop
+    }
+}
 
-    const renderPage = (num) => {
+// Page persistence functions
+function getSavedPage(pdfUrl) {
+    const savedPages = JSON.parse(localStorage.getItem('pdfPages') || '{}');
+    return savedPages[pdfUrl] || 1;
+}
+
+function saveCurrentPage() {
+    if (!pdfDoc || !currentPdfUrl) return;
+    const savedPages = JSON.parse(localStorage.getItem('pdfPages') || '{}');
+    savedPages[currentPdfUrl] = pageNum;
+    localStorage.setItem('pdfPages', JSON.stringify(savedPages));
+}
+
+// Enhanced rendering with responsive scaling
+const renderPage = (num, direction = "none") => {
+    if (!pdfDoc) return;
+
+    // Clear any previous error messages
+    searchMessageDiv.textContent = '';
+    
+    baseScale = calculateScale(); // Update scale based on screen size
+    const outputScale = window.devicePixelRatio || 1;
+    const renderScale = baseScale * outputScale;
+
     pdfDoc.getPage(num).then((page) => {
-        const unscaledViewport = page.getViewport({ scale: 1 });
-        const outputScale = window.devicePixelRatio || 1;
+        const viewport = page.getViewport({ scale: renderScale });
+        
+        // Set canvas dimensions for rendering
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        
+        // Adjust display size (CSS pixels)
+        canvas.style.width = `${viewport.width / outputScale}px`;
+        canvas.style.height = `${viewport.width * (page.originalHeight / page.originalWidth) / outputScale}px`; // Maintain aspect ratio if height changes
 
-        const scaledViewport = page.getViewport({ scale: scale * outputScale });
+        // Animation effects
+        canvas.style.transform = direction === "prev" ? "translateX(-20px)" 
+                                : direction === "next" ? "translateX(20px)"
+                                : "translateX(0)";
+        canvas.style.opacity = "0.8";
+        canvas.style.transition = "all 0.3s ease";
 
-        canvas.width = scaledViewport.width;
-        canvas.height = scaledViewport.height;
-        canvas.style.width = unscaledViewport.width * scale + 'px';
-        canvas.style.height = unscaledViewport.height * scale + 'px';
-
+        // Render the page
         const renderContext = {
             canvasContext: ctx,
-            viewport: scaledViewport
+            viewport: viewport
         };
 
-        page.render(renderContext);
-
-        document.getElementById('page-num').textContent = num;
-        document.getElementById('zoom-level').textContent = Math.round(scale * 100) + '%';
+        page.render(renderContext).promise.then(() => {
+            // Smooth animation after render
+            setTimeout(() => {
+                canvas.style.transform = "translateX(0)";
+                canvas.style.opacity = "1";
+                // Update page number display
+                pageNumSpan.textContent = num;
+                pageCountSpan.textContent = totalPages;
+                saveCurrentPage();
+            }, 50);
+        });
     });
 };
 
-    const queueRenderPage = (num) => {
-        if (num >= 1 && num <= pdfDoc.numPages) {
-            pageNum = num;
-            renderPage(pageNum);
-        }
-    };
+// Navigation functions
+function goToPrevPage() {
+    if (pageNum > 1) {
+        pageNum--;
+        renderPage(pageNum, "prev");
+    }
+}
 
-    // Navigation controls
-    document.getElementById('prev-page').addEventListener('click', () => {
-        if (pageNum > 1) {
-            queueRenderPage(pageNum - 1);
-        }
-    });
+function goToNextPage() {
+    if (pageNum < totalPages) {
+        pageNum++;
+        renderPage(pageNum, "next");
+    }
+}
 
-    document.getElementById('next-page').addEventListener('click', () => {
-        if (pageNum < pdfDoc.numPages) {
-            queueRenderPage(pageNum + 1);
-        }
-    });
+// New function for page search
+function goToSearchedPage() {
+    const desiredPage = parseInt(pageSearchInput.value, 10);
 
-    // Zoom controls
-    document.getElementById('zoom-in').addEventListener('click', () => {
-        if (scale < maxScale) {
-            scale = Math.min(scale + 0.1, maxScale);
-            renderPage(pageNum);
-        }
-    });
-
-    document.getElementById('zoom-out').addEventListener('click', () => {
-        if (scale > minScale) {
-            scale = Math.max(scale - 0.1, minScale);
-            renderPage(pageNum);
-        }
-    });
-
-    // Resize listener with debounce
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-            renderPage(pageNum);
-        }, 200);
-    });
-
-    // Load PDF
-    pdfjsLib.getDocument(url).promise.then((pdfDoc_) => {
-        pdfDoc = pdfDoc_;
-        scale = initialScale(); // Set initial scale based on screen
-        document.getElementById('page-count').textContent = pdfDoc.numPages;
+    if (isNaN(desiredPage) || desiredPage < 1 || desiredPage > totalPages) {
+        searchMessageDiv.textContent = `Please enter a valid page number between 1 and ${totalPages}.`;
+    } else {
+        pageNum = desiredPage;
         renderPage(pageNum);
-    });
+        searchMessageDiv.textContent = ''; // Clear message on success
+    }
+}
 
-  let touchStartX = 0;
-  let touchEndX = 0;
+// Click navigation on canvas
+canvas.addEventListener('click', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    
+    // Only use outer 30% of screen for navigation
+    if (clickX < rect.width * 0.3) {
+        goToPrevPage();
+    } else if (clickX > rect.width * 0.7) {
+        goToNextPage();
+    }
+});
 
-  function handleGesture() {
-    const threshold = 50; // Minimum px swipe distance
+// Button navigation
+document.getElementById('prev-page').addEventListener('click', goToPrevPage);
+document.getElementById('next-page').addEventListener('click', goToNextPage);
+document.getElementById('go-to-page-btn').addEventListener('click', goToSearchedPage); // Attach search function
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    switch(e.key) {
+        case 'ArrowLeft':
+            goToPrevPage();
+            break;
+        case 'ArrowRight':
+            goToNextPage();
+            break;
+    }
+});
+
+// Allow pressing Enter key in the input field to trigger search
+pageSearchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        goToSearchedPage();
+    }
+});
+
+
+// Touch/swipe navigation
+let touchStartX = 0;
+canvas.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+});
+canvas.addEventListener('touchend', e => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const threshold = 30; // Lower threshold for mobile
+    
     if (touchEndX < touchStartX - threshold) {
-      // Swipe left → next page
-      if (pageNum < pdfDoc.numPages) queueRenderPage(pageNum + 1);
+        goToNextPage();
+    } else if (touchEndX > touchStartX + threshold) {
+        goToPrevPage();
     }
-    if (touchEndX > touchStartX + threshold) {
-      // Swipe right → previous page
-      if (pageNum > 1) queueRenderPage(pageNum - 1);
-    }
-  }
+});
 
-  // Attach swipe listeners to the canvas
-  canvas.addEventListener('touchstart', e => {
-    touchStartX = e.changedTouches[0].screenX;
-  });
+// Responsive adjustments on resize
+let resizeTimeout;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        if (pdfDoc) {
+            renderPage(pageNum);
+        }
+    }, 200);
+});
 
-  canvas.addEventListener('touchend', e => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleGesture();
-  });
+// Load PDF document
+pdfjsLib.getDocument(url).promise.then((pdf) => {
+    pdfDoc = pdf;
+    currentPdfUrl = url;
+    totalPages = pdf.numPages;
+    
+    // Load saved page or default to first page
+    pageNum = getSavedPage(currentPdfUrl);
+    renderPage(pageNum);
+    
+    // Update page counter after loading
+    pageCountSpan.textContent = totalPages;
+    pageNumSpan.textContent = pageNum;
+}).catch(err => {
+    console.error('PDF loading error:', err);
+    searchMessageDiv.textContent = 'Failed to load PDF'; // Display error to user
+});
 
-</script>
+// Save page before unload
+window.addEventListener('beforeunload', saveCurrentPage);</script>
 </body>
 </html>
 
