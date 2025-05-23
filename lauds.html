@@ -129,10 +129,15 @@
       font-size: larger;
       font-family: 'times new roman';
       
-      color: #121212;
+      color: #121212;  
+    }
     
-
-      
+    @media (max-width: 300px) {
+      select, input[type="number"], button {
+        display: block;
+        margin: 10px auto;
+        width: 50%;
+      }
     }
   </style>
 </head>
