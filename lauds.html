@@ -110,7 +110,7 @@
     .pdf-container {
       position: relative;
       overflow: hidden;
-      width: 100%;
+      width: 80%;
     }
     canvas {
       margin-top: 30px;
@@ -126,7 +126,7 @@
       font-weight: bold;
     }
     .nav-link{
-      font-size: larger;
+      font-size: large;
       font-family: 'times new roman';
       
       color: #121212;  
@@ -138,6 +138,15 @@
         margin: 10px auto;
         width: 50%;
       }
+    }
+    canvas {
+      margin-top: 30px;
+      border: 1px solid var(--canvas-border);
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      display: block;
+      margin: auto;
     }
   </style>
 </head>
@@ -196,7 +205,7 @@
       </div>
       </div>
         <br>
-      <div class="pdf-container">
+      <div class="canvas">
         <canvas id="pdf-canvas"></canvas>
         <p id="pageInfo">Ukurasa 1 ya 1</p>
       </div>
