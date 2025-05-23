@@ -2,11 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <title>Christmas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noel</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-   
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f5f5;
+      text-align: center;
+    }
+
     h2 {
       margin-bottom: 1rem;
     }
@@ -32,7 +39,7 @@
     }
 
     #pdf-canvas {
-      width: 80%;
+      width: 100%;
       height: auto;
       border: 1px solid #aaa;
       border-radius: 4px;
@@ -55,7 +62,7 @@
       right: 0;
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 300px) {
       select, input[type="number"], button {
         display: block;
         margin: 10px auto;
@@ -71,7 +78,7 @@
       --button-hover: #1565c0;
       --canvas-border: #ccc;
     }
-    body {
+   body {
   font-family: Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -103,7 +110,6 @@
         background-position: right top;
         pointer-events: none; /* Make sure it doesn’t block clicks */
         }
-
     body.dark {
       --bg-color: #121212;
       --text-color: #e0e0e0;
@@ -226,7 +232,7 @@
 
   <label for="pdf-select">Choose SELECTION:</label>
   <select id="pdf-select">
-    <option value="pdfs/christmas.pdf">Christmas</option>
+     <option value="pdfs/christmas.pdf">Christmas</option>
     <option value="pdfs/noel 1.pdf">week 1</option>
     <option value="pdfs/noel 2.pdf">week 2</option>
     <option value="pdfs/noel 3.pdf">week 3</option>
