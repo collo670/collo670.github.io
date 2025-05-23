@@ -25,6 +25,21 @@
             text-align: center; /* Moved from inline body style */
             font-size: larger; /* Moved from inline body style */
         }
+        /* Simulated fixed background */
+        body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(248,245,245,0.7)), url('/assets/images/bikira maria.jpg');
+        background-repeat: repeat-x;
+        background-size: cover;
+        background-position: right top;
+        pointer-events: none; /* Make sure it doesn’t block clicks */
+        }
     </style>
     <title>Waraka wa Kitume</title>
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico.jpg">
