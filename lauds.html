@@ -110,9 +110,17 @@
     .pdf-container {
       position: relative;
       overflow: hidden;
-      width: 60%;
+      width: 100%;
     }
-    
+    canvas {
+      margin-top: 30px;
+      border: 1px solid var(--canvas-border);
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      display: block;
+      margin: auto;
+    }
     #pageInfo {
       margin-top: 10px;
       font-weight: bold;
@@ -131,15 +139,36 @@
         width: 50%;
       }
     }
+    .pdf-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: 20px 0;
+  }
+  
+  canvas {
+    border: 1px solid var(--canvas-border);
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
     canvas {
-      margin-top: 30px;
-      border: 1px solid var(--canvas-border);
-      background-color: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      transition: transform 0.4s ease, opacity 0.4s ease;
-      display: block;
-      margin: auto;
+      width: 100% !important; /* Force full width on mobile */
+      height: auto !important; /* Maintain aspect ratio */
     }
+    
+    .pdf-container {
+      padding: 5px 10px; /* Add some padding on mobile */
+    }
+  }
+    
   </style>
 </head>
 <body class="custom-body">
@@ -197,7 +226,7 @@
       </div>
       </div>
         <br>
-      <div class="canvas">
+      <div class="pdf-container">
         <canvas id="pdf-canvas"></canvas>
         <p id="pageInfo">Ukurasa 1 ya 1</p>
       </div>
@@ -276,35 +305,54 @@
       localStorage.setItem('pdfPages', JSON.stringify(savedPages));
     }
 
-    async function renderPage(pageNum, direction = "none") {
-      if (!currentPdf) return;
+   async function renderPage(pageNum, direction = "none") {
+    if (!currentPdf) return;
 
-      const page = await currentPdf.getPage(pageNum);
-      const viewport = page.getViewport({ scale });
+    const page = await currentPdf.getPage(pageNum);
+    const viewport = page.getViewport({ scale });
 
-      canvas.width = viewport.width;
-      canvas.height = viewport.height;
+    // Set canvas dimensions
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
 
-      // CSS size to visually fit without zooming the whole page
-      canvas.style.width = `${viewport.width / scale}px`;
-      canvas.style.height = `${viewport.height / scale}px`;
-
-      // Optional animation
-      canvas.style.transform = direction === "left" ? "translateX(100%)"
-        : direction === "right" ? "translateX(-100%)"
-        : "translateX(0)";
-      canvas.style.opacity = "0";
-
-      setTimeout(async () => {
-        await page.render({ canvasContext: ctx, viewport }).promise;
-        canvas.style.transform = "translateX(0)";
-        canvas.style.opacity = "1";
-        pageInfo.textContent = `Ukurasa ${currentPage} ya ${totalPages}`;
-        
-        // Save the current page whenever it changes
-        saveCurrentPage();
-      }, 150);
+    // Calculate display dimensions based on device width
+    const containerWidth = document.querySelector('.pdf-container').clientWidth;
+    let displayWidth = viewport.width / scale;
+    let displayHeight = viewport.height / scale;
+    
+    // On mobile, make it full width
+    if (window.innerWidth <= 768) {
+      displayWidth = containerWidth - 20; // Subtract padding
+      displayHeight = (displayWidth * viewport.height) / viewport.width;
     }
+
+    canvas.style.width = `${displayWidth}px`;
+    canvas.style.height = `${displayHeight}px`;
+
+    // Optional animation
+    canvas.style.transform = direction === "left" ? "translateX(100%)"
+      : direction === "right" ? "translateX(-100%)"
+      : "translateX(0)";
+    canvas.style.opacity = "0";
+
+    setTimeout(async () => {
+      await page.render({ canvasContext: ctx, viewport }).promise;
+      canvas.style.transform = "translateX(0)";
+      canvas.style.opacity = "1";
+      pageInfo.textContent = `Ukurasa ${currentPage} ya ${totalPages}`;
+      
+      // Save the current page whenever it changes
+      saveCurrentPage();
+    }, 150);
+  }
+
+  // Add resize listener to handle orientation changes
+  window.addEventListener('resize', () => {
+    if (currentPdf) {
+      renderPage(currentPage);
+    }
+  });
+
 
     async function loadPDF(url) {
       try {
