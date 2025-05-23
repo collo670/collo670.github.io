@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liturgical Season Navigation</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico.jpg">
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+   
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+         body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(248,245,245,0.7)), url('/assets/images/bikira maria.jpg');
+        background-repeat: repeat-x;
+        background-size: cover;
+        background-position: right top;
+        pointer-events: none; /* Make sure it doesn’t block clicks */
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+            margin-top: 100px;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .button-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .season-button {
+            background-color: #4a6fa5;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        .season-button:hover {
+            background-color: #3a5a80;
+            transform: translateY(-2px);
+        }
+        
+        .season-button:active {
+            transform: translateY(0);
+        }
+        
+        /* Special colors for different seasons */
+        .advent {
+            background-color: #9b59b6;
+        }
+        
+        .christmas {
+            background-color: whitesmoke;
+            color: black;
+        }
+        
+        .lent {
+            background-color: #9b59b6;
+        }
+        
+        .eastertide {
+            background-color: whitesmoke;
+            color: black;
+        }
+        
+        .ordinary-early {
+            background-color: #5cb85c;
+        }
+        
+        .ordinary-mid {
+            background-color: #5cb85c;
+        }
+        
+        .ordinary-late {
+            background-color: #5cb85c;
+        }
+        
+        .saints {
+            background-color:rgba(191, 13, 13, 0.979);
+        }
+    </style>
+</head>
+<body>
+    <header>
+   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <img src="/assets/images/bikira maria.jpg" alt="Bootstrap" width="40" height="40"  class="rounded-circle me-2">
+            <a class="navbar-brand" href="/public.html">ipray</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/lauds.html">Masifu ya Asubuhi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/rms.html">Redemptoris Mater</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/historia.html">Kuhusu Neo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/rozari.html">Rozari</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    </header>
+    <div class="container">
+        <h1>Liturgical Seasons</h1>
+        <p>Select a season to view the prayers:</p>
+
+        <div class="button-grid">
+            <button class="season-button ordinary-early" onclick="window.location.href='ordinary1.html'">Ordinary Week 1-12</button>
+            <button class="season-button lent" onclick="window.location.href='lent.html'">Lent</button>
+            <button class="season-button eastertide" onclick="window.location.href='easter.html'">Eastertide</button>
+            <button class="season-button ordinary-mid" onclick="window.location.href='ordinary2.html'">Ordinary Week 13-24</button>
+            <button class="season-button ordinary-late" onclick="window.location.href='ordinary3.html'">Ordinary Week 25-34</button>
+            <button class="season-button advent" onclick="window.location.href='advent.html'">Advent</button>
+            <button class="season-button christmas" onclick="window.location.href='noel.html'">Christmas</button>
+            <button class="season-button saints" onclick="window.location.href='saints.html'">Saints & Solemnities</button>
+        </div>
+    </div>
+
+    
+</body>
+</html>

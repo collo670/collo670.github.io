@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ordinary week 24-34</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    select, input[type="number"], button {
+      font-size: 1rem;
+      padding: 6px 10px;
+      margin: 0 5px 10px;
+    }
+
+    #page-info {
+      margin: 15px 0;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    #pdf-container {
+      position: relative;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 900px;
+      overflow-x: auto;
+    }
+
+    #pdf-canvas {
+      width: 100%;
+      height: auto;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .overlay-zone {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      z-index: 10;
+    }
+
+    .left-zone {
+      left: 0;
+    }
+
+    .right-zone {
+      right: 0;
+    }
+
+    @media (max-width: 400px) {
+      select, input[type="number"], button {
+        display: block;
+        margin: 10px auto;
+        width: 80%;
+      }
+    }
+
+     :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --input-bg: #f0f0f0;
+      --button-bg: #1e88e5;
+      --button-hover: #1565c0;
+      --canvas-border: #ccc;
+    }
+      body {
+      font-family: Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      background-image: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(248,245,245,0.7)), url('/assets/images/bikira maria.jpg');
+      background-repeat: repeat-x;
+      background-size: cover;
+      background-position: right top;
+      background-attachment: fixed;
+    }
+
+    /* Simulated fixed background */
+        body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(248,245,245,0.7)), url('/assets/images/bikira maria.jpg');
+        background-repeat: repeat-x;
+        background-size: cover;
+        background-position: right top;
+        pointer-events: none; /* Make sure it doesn’t block clicks */
+        }
+
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --input-bg: #1e1e1e;
+      --canvas-border: #333;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      max-width: 900px;
+      width: 100%;
+      padding: 20px;
+    }
+    .container-xxl {
+      margin-top: 80px;
+    }
+    h1, h2 {
+      font-family: 'Times New Roman', serif;
+    }
+    .masifu-heading {
+      color: rgba(15, 39, 90, 0.989);
+    }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .control-group {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      background-color: var(--input-bg);
+      color: var(--text-color);
+      border: 1px solid var(--canvas-border);
+      border-radius: 6px;
+    }
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      background-color: var(--button-bg);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    button:hover {
+      background-color: var(--button-hover);
+    }
+    .pdf-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+    canvas {
+      margin-top: 30px;
+      border: 1px solid var(--canvas-border);
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      display: block;
+      margin: auto;
+    }
+    #pageInfo {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+       <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico.jpg">
+        <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+
+     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+          <div class="container-fluid">
+            <img src="/assets/images/bikira maria.jpg" alt="Bootstrap" width="40" height="40" class="rounded-circle me-2">
+            <a class="navbar-brand" href="/public.html">ipray</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/lauds.html">Masifu ya Asubuhi</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/rms.html">Redemptoris Mater</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/historia.html">Kuhusu Neo</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/rozari.html">Rozari</a>
+                </li>
+              </ul>
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="container-xxl themed-container text-center">
+    <h2 class="masifu-heading display-3"><strong>ORDINARY WEEK 24 - 34</strong></h2>
+    <div class="container">
+      <div class="header">
+        
+          
+
+
+  <label for="pdf-select">Choose SELECTION:</label>
+  <select id="pdf-select">
+    <option value="pdfs/ordinary 24.pdf">week 24</option>
+    <option value="pdfs/ordinary 25.pdf">week 25</option>
+    <option value="pdfs/ordinary 26.pdf">week 26</option>
+    <option value="pdfs/ordinary 27.pdf">week 27</option>
+    <option value="pdfs/ordinary 28.pdf">week 28</option>
+    <option value="pdfs/ordinary 29.pdf">week 29</option>
+    <option value="pdfs/ordinary 30.pdf">week 30</option>
+    <option value="pdfs/ordinary 31.pdf">week 31</option>
+    <option value="pdfs/ordinary 32.pdf">week 32</option>
+    <option value="pdfs/ordinary 33.pdf">week 33</option>
+    <option value="pdfs/ordinary 34.pdf">week 34</option>
+  </select>
+
+  <div id="page-info">Page 1 of ?</div>
+
+  <label for="page-number">Go to page:</label>
+  <input type="number" id="page-number" min="1" style="width: 70px;">
+  <button id="go-button">Go</button>
+  </div>
+  </div>
+
+  <div id="pdf-container">
+    <canvas id="pdf-canvas"></canvas>
+    <div class="overlay-zone left-zone"></div>
+    <div class="overlay-zone right-zone"></div>
+  </div>
+
+   <div class="container-fluid themed-container text-center">
+        <div class="container">
+            <footer class="py-3 my-4">
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                    <li class="nav-item">
+                        <a href="lent.html" class="nav-link px-2 text-body-secondary">Lent</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="easter.html" class="nav-link px-2 text-body-secondary">Easter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="noel.html" class="nav-link px-2 text-body-secondary">Noel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/nyimbo.html" class="nav-link px-2 text-body-secondary">Amefufuka</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="advent.html" class="nav-link px-2 text-body-secondary">Advent</a>
+                    </li>
+                </ul>
+                <p class="text-center text-body-secondary">&copy; ipray 2025, All rights reserved</p>
+            </footer>
+        </div>
+    </div>
+  </div>
+
+  <!-- PDF.js from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+  const pdfjsLib = window['pdfjs-dist/build/pdf'];
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+  const canvas = document.getElementById('pdf-canvas');
+  const ctx = canvas.getContext('2d');
+  const select = document.getElementById('pdf-select');
+  const leftZone = document.querySelector('.left-zone');
+  const rightZone = document.querySelector('.right-zone');
+  const pageInfo = document.getElementById('page-info');
+  const pageNumberInput = document.getElementById('page-number');
+  const goButton = document.getElementById('go-button');
+
+  let pdfDoc = null;
+  let currentPage = 1;
+  let totalPages = 0;
+  const baseScale = 1.0;
+  let scale = 3.0;
+
+  
+
+  function getStorageKey(filename) {
+    return `pdf-viewer-last-page:${filename}`;
+  }
+
+  function saveCurrentPage(filename) {
+    localStorage.setItem(getStorageKey(filename), currentPage);
+  }
+
+  function loadLastPage(filename) {
+    return parseInt(localStorage.getItem(getStorageKey(filename))) || 1;
+  }
+
+  async function renderPage(pageNum) {
+    const page = await pdfDoc.getPage(pageNum);
+    const containerWidth = document.getElementById('pdf-container').offsetWidth;
+    const baseViewport = page.getViewport({ scale: baseScale });
+    const responsiveScale = containerWidth / baseViewport.width;
+    const finalViewport = page.getViewport({ scale: baseScale * responsiveScale });
+
+    const outputScale = window.devicePixelRatio || 1;
+    canvas.width = finalViewport.width * outputScale;
+    canvas.height = finalViewport.height * outputScale;
+    ctx.setTransform(outputScale, 0, 0, outputScale, 0, 0);
+    canvas.style.width = finalViewport.width + 'px';
+    canvas.style.height = finalViewport.height + 'px';
+
+    const renderContext = {
+      canvasContext: ctx,
+      viewport: finalViewport
+    };
+
+    await page.render(renderContext).promise;
+    pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+    pageNumberInput.value = currentPage;
+
+    // Save current page to localStorage
+    const filename = select.value;
+    saveCurrentPage(filename);
+  }
+
+  async function loadPDF(url) {
+    const loadingTask = pdfjsLib.getDocument(url);
+    pdfDoc = await loadingTask.promise;
+    totalPages = pdfDoc.numPages;
+
+    // Load last viewed page from localStorage
+    currentPage = Math.min(loadLastPage(url), totalPages);
+    renderPage(currentPage);
+  }
+
+  function nextPage() {
+    if (currentPage < totalPages) {
+      currentPage++;
+      renderPage(currentPage);
+    }
+  }
+
+  function prevPage() {
+    if (currentPage > 1) {
+      currentPage--;
+      renderPage(currentPage);
+    }
+  }
+
+  function goToPage() {
+    const requestedPage = parseInt(pageNumberInput.value);
+    if (requestedPage >= 1 && requestedPage <= totalPages) {
+      currentPage = requestedPage;
+      renderPage(currentPage);
+    } else {
+      alert(`Please enter a page number between 1 and ${totalPages}`);
+    }
+  }
+
+  select.addEventListener('change', () => loadPDF(select.value));
+  rightZone.addEventListener('click', nextPage);
+  leftZone.addEventListener('click', prevPage);
+  goButton.addEventListener('click', goToPage);
+  pageNumberInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') goToPage();
+  });
+
+  window.addEventListener('resize', () => renderPage(currentPage));
+
+  // Load initial PDF
+  loadPDF(select.value);
+</script>
+
+</body>
+</html>

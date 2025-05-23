@@ -16,22 +16,39 @@
       --button-hover: #1565c0;
       --canvas-border: #ccc;
     }
-    body {
-      font-family: Arial, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-      background-image: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(248,245,245,0.7)), url('/assets/images/bikira maria.jpg');
-      background-repeat: repeat-x;
-      background-size: cover;
-      background-position: right top;
-      background-attachment: fixed;
-    }
+   body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(248,245,245,0.7)), url('/assets/images/bikira maria.jpg');
+  background-repeat: repeat-x;
+  background-size: cover;
+  background-position: right top;
+  background-attachment: fixed;
+}
+
+ /* Simulated fixed background */
+        body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(248,245,245,0.7)), url('/assets/images/bikira maria.jpg');
+        background-repeat: repeat-x;
+        background-size: cover;
+        background-position: right top;
+        pointer-events: none; /* Make sure it doesn’t block clicks */
+        }
+
     body.dark {
       --bg-color: #121212;
       --text-color: #e0e0e0;
@@ -108,12 +125,21 @@
       margin-top: 10px;
       font-weight: bold;
     }
+    .nav-link{
+      font-size: larger;
+      font-family: 'times new roman';
+      
+      color: #121212;
+    
+
+      
+    }
   </style>
 </head>
 <body class="custom-body">
    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
           <div class="container-fluid">
-            <img src="/assets/images/bikira maria.jpg" alt="Bootstrap" width="40" height="40">
+            <img src="/assets/images/bikira maria.jpg" alt="Bootstrap" width="40" height="40" >
             <a class="navbar-brand" href="/public.html">ipray</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -144,11 +170,13 @@
     <div class="container">
       <div class="header">
         <button id="themeToggle">Badili Mandhari</button>
+        <br><br>
+        <button class="season-button ordinary-early" onclick="window.location.href='prayers.html'">Pray in English</button>
       </div>
 
       <div class="controls">
         <div class="control-group">
-          <label for="searchInput">Tafuta Neno:</label>
+          <label for="searchInput">Chagua Kipindi:</label>
         <input type="text" id="searchInput" list="searchSuggestions" placeholder="mf. Pasaka, Mwaka 1" />
         <datalist id="searchSuggestions">
           <option value="Pasaka">
@@ -171,8 +199,35 @@
       <p>
         <a href="/assets/documents/asubuhi/Masifu ya Asubuhi kwa majuma manne complete vol 1of2.pdf" download>Download PDF</a>
       </p>
+
+
+       <div class="container-fluid themed-container text-center">
+        <div class="container">
+            <footer class="py-3 my-4">
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                    <li class="nav-item">
+                        <a href="lent.html" class="nav-link px-2 text-body-secondary">Lent</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="easter.html" class="nav-link px-2 text-body-secondary">Easter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="noel.html" class="nav-link px-2 text-body-secondary">Noel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/nyimbo.html" class="nav-link px-2 text-body-secondary">Amefufuka</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="advent.html" class="nav-link px-2 text-body-secondary">Advent</a>
+                    </li>
+                </ul>
+                <p class="text-center text-body-secondary">&copy; ipray 2025, All rights reserved</p>
+            </footer>
+        </div>
     </div>
   </div>
+
+  
 
   
 

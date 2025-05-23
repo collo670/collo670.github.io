@@ -53,6 +53,21 @@
                   background-position: right top;
                   background-attachment: fixed;
              }
+             /* Simulated fixed background */
+        body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(248,245,245,0.7)), url('/assets/images/bikira maria.jpg');
+        background-repeat: repeat-x;
+        background-size: cover;
+        background-position: right top;
+        pointer-events: none; /* Make sure it doesn’t block clicks */
+        }
 
             .justified-text {
                 text-align: justify;
